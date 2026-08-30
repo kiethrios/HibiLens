@@ -1,0 +1,38 @@
+name: Product feedback
+description: Share feedback about the current Hibi Lens release
+title: "[Feedback]: "
+labels:
+  - feedback
+body:
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Topic
+      options:
+        - Recognition result
+        - Vocabulary card
+        - Camera or photo import
+        - Accessibility or localization
+        - Setup and documentation
+        - Other current behavior
+    validations:
+      required: true
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Feedback
+      description: Describe what you used and what you would change.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Add the device, app version, or example that would help us understand the feedback.
+  - type: checkboxes
+    id: security-check
+    attributes:
+      label: Security check
+      options:
+        - label: This feedback does not disclose a security vulnerability.
+          required: true

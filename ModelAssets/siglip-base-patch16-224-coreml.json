@@ -1,0 +1,15 @@
+{
+  "archiveBytes": 170660325,
+  "archiveSHA256": "51b67898490142717182dcf0593703236c95d04de763e53c9f33c8648e57aa18",
+  "assetURL": "https://github.com/kiethrios/HibiLens/releases/download/model-siglip-base-patch16-224-v1/siglip-base-patch16-224-coreml-v1.zip",
+  "converter": {
+    "coremltools": "8.3.0",
+    "torch": "2.5.0",
+    "transformers": "5.8.0"
+  },
+  "destination": "JapCapture/Models/SigLIP/siglip_base_patch16_224_image.mlpackage",
+  "license": "Apache-2.0",
+  "modelID": "google/siglip-base-patch16-224",
+  "modelRevision": "7fd15f0689c79d79e38b1c2e2e2370a7bf2761ed",
+  "schemaVersion": 1
+}

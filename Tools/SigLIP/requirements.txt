@@ -1,0 +1,10 @@
+torch==2.5.0
+transformers==5.8.0
+coremltools==8.3.0
+pillow==12.2.0
+sentencepiece==0.2.1
+safetensors==0.7.0
+tokenizers==0.22.2
+tqdm==4.67.3
+typer==0.25.1
+rich==15.0.0

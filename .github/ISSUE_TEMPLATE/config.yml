@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a vulnerability
+    url: https://github.com/kiethrios/HibiLens/security/advisories/new
+    about: Send a private vulnerability report instead of opening a public Issue.
