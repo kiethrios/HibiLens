@@ -22,7 +22,7 @@ Hibi Lens does not require an account.
 
 ## What is included
 
-- Local object recognition with a bundled SigLIP text index
+- Recognizes 512 everyday objects and shows you how to say them in Japanese
 - Japanese terms with kana, romaji, pronunciation, and English meaning
 - Saved vocabulary cards with learning and mastered states
 - Camera capture and photo-library import
