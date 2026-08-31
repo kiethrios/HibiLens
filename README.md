@@ -11,8 +11,9 @@ into a vocabulary card you can keep and review.
 Recognition runs on the device. Your photos and saved cards stay there too.
 Hibi Lens does not require an account.
 
-**Download on the App Store:**
-<https://apps.apple.com/us/app/hibi-lens/id6792243095?l=en-US>
+<a href="https://apps.apple.com/us/app/hibi-lens/id6792243095?l=en-US">
+  <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" height="40">
+</a>
 
 <p align="center">
   <img src="BrandAssets/Screenshots/home.png" alt="Hibi Lens home screen" width="220">
@@ -28,13 +29,10 @@ Hibi Lens does not require an account.
 - Light and dark appearance
 - English and Simplified Chinese interface text
 
-This repository contains the source for the Hibi Lens 1.0 local client.
-
 ## About this repository
 
-This is the official public source release mirror for Hibi Lens. Development
-takes place in a private repository; reviewed snapshots are published here at
-selected releases.
+This repository contains the Hibi Lens 1.0 iOS app, local recognition
+resources, and tools for preparing its vocabulary and SigLIP assets.
 
 Issues are open for bug reports, setup problems, and product feedback. Code contributions are not accepted during the soft launch, and Pull Requests are
 disabled. See [CONTRIBUTING.md](CONTRIBUTING.md) for the current policy.
@@ -95,7 +93,7 @@ xcodebuild -project HibiLens.xcodeproj \
 ```
 
 To redistribute a fork, choose your own product name, Bundle ID, and artwork.
-The public project uses a neutral placeholder App Icon.
+This project uses a neutral placeholder App Icon.
 
 ## How recognition works
 
@@ -118,8 +116,8 @@ for the published policy.
 
 ## License and brand
 
-Original source code and tooling released in this mirror are available under
-the [MIT License](LICENSE).
+Original source code and tooling in this repository are available under the
+[MIT License](LICENSE).
 
 That license does not cover every file in the repository:
 

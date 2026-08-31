@@ -5,7 +5,7 @@ need to leave the device for this flow.
 
 ## Vocabulary sources
 
-The public vocabulary starts with two reviewed source files:
+The vocabulary starts with two reviewed source files:
 
 - `openimages-boxable-classes.csv` supplies Open Images object labels.
 - `Data/ObjectVocabulary/object_vocabulary_source.csv` contains the selected
@@ -24,7 +24,7 @@ for Japanese terms and aliases.
 The classifier uses `google/siglip-base-patch16-224` at revision
 `7fd15f0689c79d79e38b1c2e2e2370a7bf2761ed`.
 
-The public repository includes
+This repository includes
 `HibiLens/Resources/siglip-object-vocabulary-text-embeddings.json`. It is the
 text index for the object vocabulary. The large Core ML image encoder is kept
 outside Git history. Install it before opening the Xcode project:

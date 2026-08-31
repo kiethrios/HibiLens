@@ -1,19 +1,20 @@
-# Hibi Lens
+# 日摄
 
 [English](README.md) | 简体中文
 
 **看见它，也知道它的日语。**
 
-Hibi Lens 是一款 iPhone 日语词汇应用。拍下身边的东西，或者从相册里选一张照片，应用会识别物品，并把结果做成一张可以保存和复习的日语词卡。
+日摄（Hibi Lens）是一款 iPhone 日语词汇应用。拍下身边的东西，或者从相册里选一张照片，应用会识别物品，并把结果做成一张可以保存和复习的日语词卡。
 
 识别在设备本地完成。照片和词卡也留在设备里，不需要注册账号。
 
-**在 App Store 下载：**
-<https://apps.apple.com/us/app/%E6%97%A5%E6%91%84/id6792243095?l=zh-Hans-CN>
+<a href="https://apps.apple.com/us/app/%E6%97%A5%E6%91%84/id6792243095?l=zh-Hans-CN">
+  <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/zh-cn?size=250x83" alt="在 App Store 下载" height="40">
+</a>
 
 <p align="center">
-  <img src="BrandAssets/Screenshots/home.png" alt="Hibi Lens 首页" width="220">
-  <img src="BrandAssets/Screenshots/learning-gallery.png" alt="Hibi Lens 学习词卡画廊" width="220">
+  <img src="BrandAssets/Screenshots/home.png" alt="日摄首页" width="220">
+  <img src="BrandAssets/Screenshots/learning-gallery.png" alt="日摄学习词卡画廊" width="220">
 </p>
 
 ## 目前包括什么
@@ -25,11 +26,9 @@ Hibi Lens 是一款 iPhone 日语词汇应用。拍下身边的东西，或者�
 - 支持浅色与深色外观
 - 提供英文和简体中文界面
 
-这个仓库提供 Hibi Lens 1.0 本地客户端的源码。
-
 ## 关于这个仓库
 
-这是 Hibi Lens 的官方公开源码发布镜像。日常开发在私有仓库中进行；我们只会在选定的产品版本发布经过检查的源码快照。
+这个仓库包含日摄 1.0 iOS 客户端、本地识别资源，以及用于准备词表和 SigLIP 资源的工具。
 
 你可以通过 Issues 报告问题、询问安装方法或提供产品反馈。soft launch 期间暂不接受代码贡献，Pull Requests 已关闭。当前政策见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
@@ -84,27 +83,27 @@ xcodebuild -project HibiLens.xcodeproj \
   build
 ```
 
-如果要重新分发 fork，请改用自己的产品名称、Bundle ID 和图形资源。公开工程使用的是中性占位 App Icon。
+如果要重新分发 fork，请改用自己的产品名称、Bundle ID 和图形资源。这个工程使用的是中性占位 App Icon。
 
 ## 识别过程
 
-Hibi Lens 使用 Core ML 版 SigLIP 图像编码器和随应用提供的文本嵌入索引。应用把照片的图像向量与物品词表进行比较，再用匹配到的条目生成日语词卡。识别和词卡存储都在设备本地完成。
+日摄使用 Core ML 版 SigLIP 图像编码器和随应用提供的文本嵌入索引。应用把照片的图像向量与物品词表进行比较，再用匹配到的条目生成日语词卡。识别和词卡存储都在设备本地完成。
 
 文件位置和生成工具见 [docs/recognition-pipeline.md](docs/recognition-pipeline.md)。
 
 ## 隐私
 
-Hibi Lens 本地客户端不需要账号。拍摄的图片、保存的词卡和学习进度存储在设备上。只有在你主动使用相机或相册功能时，应用才会请求相应权限。
+日摄本地客户端不需要账号。拍摄的图片、保存的词卡和学习进度存储在设备上。只有在你主动使用相机或相册功能时，应用才会请求相应权限。
 
-已发布的政策见 [Hibi Lens 隐私政策](https://kiethrios.github.io/PrivacyPolicy/HibiLensPrivacyPolicy_zh-Hans.html)。
+已发布的政策见 [日摄隐私政策](https://kiethrios.github.io/PrivacyPolicy/HibiLensPrivacyPolicy_zh-Hans.html)。
 
 ## 许可与品牌
 
-这个镜像中明确发布的原创代码和工具采用 [MIT License](LICENSE)。
+这个仓库中的原创代码和工具采用 [MIT License](LICENSE)。
 
 MIT 不覆盖仓库中的所有内容：
 
-- Hibi Lens 名称、官方 logo、官方 App Icon 和指定产品截图受 [BRAND_ASSETS.md](BRAND_ASSETS.md) 约束。
+- 日摄名称、官方 logo、官方 App Icon 和指定产品截图受 [BRAND_ASSETS.md](BRAND_ASSETS.md) 约束。
 - 源自 JMdict 的词汇材料采用 CC BY-SA 4.0。
 - 词表流程使用的 Open Images 源材料采用 CC BY 4.0。
 - SigLIP 及其衍生模型资源采用 Apache 2.0。
