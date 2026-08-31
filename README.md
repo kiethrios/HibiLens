@@ -11,9 +11,13 @@ into a vocabulary card you can keep and review.
 Recognition runs on the device. Your photos and saved cards stay there too.
 Hibi Lens does not require an account.
 
-![Hibi Lens home screen](BrandAssets/Screenshots/home.png)
+**Download on the App Store:**
+<https://apps.apple.com/us/app/hibi-lens/id6792243095?l=en-US>
 
-![Hibi Lens learning gallery](BrandAssets/Screenshots/learning-gallery.png)
+<p align="center">
+  <img src="BrandAssets/Screenshots/home.png" alt="Hibi Lens home screen" width="220">
+  <img src="BrandAssets/Screenshots/learning-gallery.png" alt="Hibi Lens learning gallery" width="220">
+</p>
 
 ## What is included
 

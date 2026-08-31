@@ -8,9 +8,13 @@ Hibi Lens 是一款 iPhone 日语词汇应用。拍下身边的东西，或者�
 
 识别在设备本地完成。照片和词卡也留在设备里，不需要注册账号。
 
-![Hibi Lens 首页](BrandAssets/Screenshots/home.png)
+**在 App Store 下载：**
+<https://apps.apple.com/us/app/%E6%97%A5%E6%91%84/id6792243095?l=zh-Hans-CN>
 
-![Hibi Lens 学习词卡画廊](BrandAssets/Screenshots/learning-gallery.png)
+<p align="center">
+  <img src="BrandAssets/Screenshots/home.png" alt="Hibi Lens 首页" width="220">
+  <img src="BrandAssets/Screenshots/learning-gallery.png" alt="Hibi Lens 学习词卡画廊" width="220">
+</p>
 
 ## 目前包括什么
 
