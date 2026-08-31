@@ -23,7 +23,7 @@ from urllib.parse import urlparse
 
 
 EXPECTED_DESTINATION = (
-    "JapCapture/Models/SigLIP/siglip_base_patch16_224_image.mlpackage"
+    "HibiLens/Models/SigLIP/siglip_base_patch16_224_image.mlpackage"
 )
 EXPECTED_MODEL_ROOT = "siglip_base_patch16_224_image.mlpackage"
 EXPECTED_MODEL_ID = "google/siglip-base-patch16-224"

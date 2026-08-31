@@ -33,8 +33,8 @@ default branch name:
 The script writes:
 
 ```text
-JapCapture/Resources/siglip-object-vocabulary-text-embeddings.json
-JapCapture/Models/SigLIP/siglip_base_patch16_224_image.mlpackage
+HibiLens/Resources/siglip-object-vocabulary-text-embeddings.json
+HibiLens/Models/SigLIP/siglip_base_patch16_224_image.mlpackage
 ```
 
 Core ML conversion requires `coremltools` and may take time because it traces
@@ -50,7 +50,7 @@ Useful overrides:
 ./.venv/bin/python Tools/SigLIP/export_siglip_assets.py \
   --model-id google/siglip-base-patch16-224 \
   --revision main \
-  --object-vocabulary JapCapture/Resources/object-vocabulary.json \
-  --output-json JapCapture/Resources/siglip-object-vocabulary-text-embeddings.json \
-  --output-image-model JapCapture/Models/SigLIP/siglip_base_patch16_224_image.mlpackage
+  --object-vocabulary HibiLens/Resources/object-vocabulary.json \
+  --output-json HibiLens/Resources/siglip-object-vocabulary-text-embeddings.json \
+  --output-image-model HibiLens/Models/SigLIP/siglip_base_patch16_224_image.mlpackage
 ```

@@ -138,16 +138,16 @@ def main() -> None:
     )
     parser.add_argument(
         "--output-json",
-        default=str(REPO_ROOT / "JapCapture/Resources/siglip-object-vocabulary-text-embeddings.json"),
+        default=str(REPO_ROOT / "HibiLens/Resources/siglip-object-vocabulary-text-embeddings.json"),
     )
     parser.add_argument(
         "--object-vocabulary",
-        default=str(REPO_ROOT / "JapCapture/Resources/object-vocabulary.json"),
+        default=str(REPO_ROOT / "HibiLens/Resources/object-vocabulary.json"),
         help="App object-vocabulary JSON containing concepts[].canonicalLabel.",
     )
     parser.add_argument(
         "--output-image-model",
-        default=str(REPO_ROOT / "JapCapture/Models/SigLIP/siglip_base_patch16_224_image.mlpackage"),
+        default=str(REPO_ROOT / "HibiLens/Models/SigLIP/siglip_base_patch16_224_image.mlpackage"),
     )
     args = parser.parse_args()
 

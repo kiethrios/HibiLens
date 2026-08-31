@@ -42,9 +42,6 @@ disabled. See [CONTRIBUTING.md](CONTRIBUTING.md) for the current policy.
 - Python 3 for the model preparation script
 - About 200 MB of free space for the Core ML model download and extraction
 
-The Xcode project and target still use the internal name `JapCapture`. The app
-shown on the device is Hibi Lens.
-
 ## Prepare the recognition model
 
 The Core ML image encoder is about 176 MB, so it is distributed as a GitHub
@@ -60,7 +57,7 @@ The script downloads the pinned archive, checks its size and SHA-256 digest,
 and installs it here:
 
 ```text
-JapCapture/Models/SigLIP/siglip_base_patch16_224_image.mlpackage
+HibiLens/Models/SigLIP/siglip_base_patch16_224_image.mlpackage
 ```
 
 The model comes from `google/siglip-base-patch16-224` at revision
@@ -74,10 +71,10 @@ the archive.
 Open the project after preparing the model:
 
 ```bash
-open JapCapture.xcodeproj
+open HibiLens.xcodeproj
 ```
 
-Choose the `JapCapture` scheme and an iOS simulator, then build or run from
+Choose the `HibiLens` scheme and an iOS simulator, then build or run from
 Xcode.
 
 To run tests in Xcode, choose `Product > Test` with an iOS simulator selected.
@@ -85,8 +82,8 @@ To run tests in Xcode, choose `Product > Test` with an iOS simulator selected.
 A code-signing-disabled command-line build is also available:
 
 ```bash
-xcodebuild -project JapCapture.xcodeproj \
-  -scheme JapCapture \
+xcodebuild -project HibiLens.xcodeproj \
+  -scheme HibiLens \
   -destination 'generic/platform=iOS Simulator' \
   CODE_SIGNING_ALLOWED=NO \
   CODE_SIGNING_REQUIRED=NO \

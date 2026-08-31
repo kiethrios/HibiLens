@@ -16,7 +16,7 @@ review CSV from an Open Images class-description file and a JMdict XML archive.
 The JMdict archive is an external input and is not stored in this repository.
 
 `Tools/ObjectVocabulary/generate_object_vocabulary.py` validates the reviewed
-CSV and writes `JapCapture/Resources/object-vocabulary.json`, which the app uses
+CSV and writes `HibiLens/Resources/object-vocabulary.json`, which the app uses
 for Japanese terms and aliases.
 
 ## SigLIP assets
@@ -25,7 +25,7 @@ The classifier uses `google/siglip-base-patch16-224` at revision
 `7fd15f0689c79d79e38b1c2e2e2370a7bf2761ed`.
 
 The public repository includes
-`JapCapture/Resources/siglip-object-vocabulary-text-embeddings.json`. It is the
+`HibiLens/Resources/siglip-object-vocabulary-text-embeddings.json`. It is the
 text index for the object vocabulary. The large Core ML image encoder is kept
 outside Git history. Install it before opening the Xcode project:
 
@@ -34,7 +34,7 @@ python3 scripts/prepare_siglip_model.py
 ```
 
 The script installs the checked package at
-`JapCapture/Models/SigLIP/siglip_base_patch16_224_image.mlpackage`.
+`HibiLens/Models/SigLIP/siglip_base_patch16_224_image.mlpackage`.
 
 Maintainers can regenerate the text index and Core ML model with
 `Tools/SigLIP/export_siglip_assets.py` and the pinned Python dependencies in

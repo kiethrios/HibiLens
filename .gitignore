@@ -6,4 +6,4 @@ xcuserdata/
 .venv/
 __pycache__/
 *.pyc
-JapCapture/Models/SigLIP/
+HibiLens/Models/SigLIP/

@@ -7,7 +7,7 @@
     "torch": "2.5.0",
     "transformers": "5.8.0"
   },
-  "destination": "JapCapture/Models/SigLIP/siglip_base_patch16_224_image.mlpackage",
+  "destination": "HibiLens/Models/SigLIP/siglip_base_patch16_224_image.mlpackage",
   "license": "Apache-2.0",
   "modelID": "google/siglip-base-patch16-224",
   "modelRevision": "7fd15f0689c79d79e38b1c2e2e2370a7bf2761ed",

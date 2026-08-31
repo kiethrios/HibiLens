@@ -7,7 +7,7 @@ license does not replace these terms.
 
 The Japanese vocabulary data in
 `Data/ObjectVocabulary/object_vocabulary_source.csv` and the generated
-`JapCapture/Resources/object-vocabulary.json` include material derived from
+`HibiLens/Resources/object-vocabulary.json` include material derived from
 JMdict. JMdict is maintained by the Electronic Dictionary Research and
 Development Group (EDRDG) and is available under CC BY-SA 4.0.
 

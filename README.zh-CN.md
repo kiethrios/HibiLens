@@ -36,8 +36,6 @@ Hibi Lens 是一款 iPhone 日语词汇应用。拍下身边的东西，或者�
 - Python 3，用于运行模型准备脚本
 - 大约 200 MB 可用空间，用来下载和解压 Core ML 模型
 
-Xcode 工程和 target 仍使用内部名称 `JapCapture`，安装到设备上显示的名称是 Hibi Lens。
-
 ## 准备识别模型
 
 Core ML 图像编码模型约为 176 MB，因此它作为 GitHub Release 附件单独发布，不进入普通 Git 历史。
@@ -51,7 +49,7 @@ python3 scripts/prepare_siglip_model.py
 脚本会下载固定版本的压缩包，核对文件大小和 SHA-256，然后安装到：
 
 ```text
-JapCapture/Models/SigLIP/siglip_base_patch16_224_image.mlpackage
+HibiLens/Models/SigLIP/siglip_base_patch16_224_image.mlpackage
 ```
 
 模型来自 `google/siglip-base-patch16-224`，固定 revision 为
@@ -64,18 +62,18 @@ JapCapture/Models/SigLIP/siglip_base_patch16_224_image.mlpackage
 模型准备完成后，打开工程：
 
 ```bash
-open JapCapture.xcodeproj
+open HibiLens.xcodeproj
 ```
 
-在 Xcode 中选择 `JapCapture` scheme 和一个 iOS 模拟器，然后构建或运行。
+在 Xcode 中选择 `HibiLens` scheme 和一个 iOS 模拟器，然后构建或运行。
 
 要在 Xcode 中运行测试，请选择 `Product > Test`，并确认已经选中 iOS 模拟器。
 
 也可以在命令行执行不需要签名的构建：
 
 ```bash
-xcodebuild -project JapCapture.xcodeproj \
-  -scheme JapCapture \
+xcodebuild -project HibiLens.xcodeproj \
+  -scheme HibiLens \
   -destination 'generic/platform=iOS Simulator' \
   CODE_SIGNING_ALLOWED=NO \
   CODE_SIGNING_REQUIRED=NO \
