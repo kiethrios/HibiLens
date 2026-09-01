@@ -2,6 +2,8 @@
 
 [English](README.md) | 简体中文
 
+[产品网站](https://kiethrios.github.io/HibiLens/)
+
 **看见它，也知道它的日语。**
 
 日摄（Hibi Lens）是一款 iPhone 日语词汇应用。拍下身边的东西，或者从相册里选一张照片，应用会识别物品，并把结果做成一张可以保存和复习的日语词卡。

@@ -2,6 +2,8 @@
 
 English | [简体中文](README.zh-CN.md)
 
+[Website](https://kiethrios.github.io/HibiLens/)
+
 **See it. Know it in Japanese.**
 
 Hibi Lens is an iPhone app for learning the Japanese names of things around
