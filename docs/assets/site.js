@@ -3,8 +3,41 @@
 
   const STORAGE_KEY = "hibiLensLocale";
   const SUPPORTED = new Set(["en", "zh-Hans"]);
+  const FALLBACK_APP_STORE_URL =
+    "https://apps.apple.com/us/app/hibi-lens/id6792243095?l=en-US";
+  const APP_STORE_CAMPAIGNS = Object.freeze({
+    youtube:
+      "https://apps.apple.com/app/apple-store/id6792243095?pt=128362381&ct=youtube&mt=8",
+    instagram:
+      "https://apps.apple.com/app/apple-store/id6792243095?pt=128362381&ct=instagram&mt=8",
+  });
+  const APP_STORE_QR = Object.freeze({
+    youtube: "./assets/app-store-qr-youtube.png",
+    instagram: "./assets/app-store-qr-instagram.png",
+  });
+  const FALLBACK_APP_STORE_QR = "./assets/app-store-qr-en.png";
   const payload = JSON.parse(document.getElementById("locale-data").textContent);
   const toggles = document.querySelectorAll("[data-language-toggle]");
+
+  function acquisitionSource(search) {
+    const source = new URLSearchParams(search).get("src");
+    return Object.prototype.hasOwnProperty.call(APP_STORE_CAMPAIGNS, source)
+      ? source
+      : null;
+  }
+
+  function applyAppStoreRouting(search) {
+    const source = acquisitionSource(search);
+    const href = source ? APP_STORE_CAMPAIGNS[source] : FALLBACK_APP_STORE_URL;
+    const qr = source ? APP_STORE_QR[source] : FALLBACK_APP_STORE_QR;
+
+    document.querySelectorAll("[data-app-store-cta]").forEach((element) => {
+      element.href = href;
+    });
+    document.querySelectorAll("[data-app-store-qr]").forEach((element) => {
+      element.src = qr;
+    });
+  }
 
   function storedLocale() {
     try {
@@ -61,6 +94,8 @@
         // The selected locale still applies when storage is unavailable.
       }
     }
+
+    applyAppStoreRouting(window.location.search);
   }
 
   let locale = storedLocale() || browserLocale();

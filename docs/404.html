@@ -22,9 +22,35 @@
     <p>404</p>
     <h1>This page moved out of frame.</h1>
     <p>The view you were looking for is no longer here. Return to the <a class="home-link" href="./">Hibi Lens home page</a>, or keep learning on iPhone.</p>
-    <a class="app-store-link" href="https://apps.apple.com/us/app/hibi-lens/id6792243095?l=en-US">
+    <a class="app-store-link" href="https://apps.apple.com/us/app/hibi-lens/id6792243095?l=en-US" data-app-store-cta>
       <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="250" height="83">
     </a>
   </main>
+  <script>
+    (function () {
+      "use strict";
+
+      const fallbackAppStoreUrl =
+        "https://apps.apple.com/us/app/hibi-lens/id6792243095?l=en-US";
+      const appStoreCampaigns = Object.freeze({
+        youtube:
+          "https://apps.apple.com/app/apple-store/id6792243095?pt=128362381&ct=youtube&mt=8",
+        instagram:
+          "https://apps.apple.com/app/apple-store/id6792243095?pt=128362381&ct=instagram&mt=8",
+      });
+      const source = new URLSearchParams(window.location.search).get("src");
+      const href = Object.prototype.hasOwnProperty.call(
+        appStoreCampaigns,
+        source
+      )
+        ? appStoreCampaigns[source]
+        : fallbackAppStoreUrl;
+      const cta = document.querySelector("[data-app-store-cta]");
+
+      if (cta) {
+        cta.href = href;
+      }
+    })();
+  </script>
 </body>
 </html>
