@@ -10,6 +10,8 @@ Hibi Lens is an iPhone app for learning the Japanese names of things around
 you. Take a photo or choose one from your library, and the app turns the result
 into a vocabulary card you can keep and review.
 
+HibiLens is the compact spelling used in the website and GitHub URLs; it refers to the same Hibi Lens app.
+
 Recognition runs on the device. Your photos and saved cards stay there too.
 Hibi Lens does not require an account.
 
