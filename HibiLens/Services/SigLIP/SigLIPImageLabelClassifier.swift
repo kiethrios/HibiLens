@@ -1,6 +1,6 @@
 import UIKit
 
-protocol SigLIPImageEmbeddingProviding {
+nonisolated protocol SigLIPImageEmbeddingProviding {
     nonisolated func prewarm() async throws
     nonisolated func imageEmbedding(for image: UIImage) async throws -> [Float]
 }
