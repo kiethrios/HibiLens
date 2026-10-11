@@ -1,0 +1,513 @@
+concept_id,domain,canonical_label,aliases,jmdict_seq,japanese,kana,romaji,english,zh_hans,part_of_speech,concept_priority,candidate_priority,source_notes
+cup,kitchen,cup,"cup,drinking cup,glass,tumbler",1050390,コップ,コップ,koppu,cup,杯子,noun,95,95,jmdict
+chair,furniture,chair,"chair,seat,dining chair",1157070,椅子,いす,isu,chair,椅子,noun,94,94,jmdict
+mug_cup,kitchen,mug,"mug,cup,coffee cup",2057330,マグカップ,マグカップ,magukappu,mug,马克杯,noun,94,94,jmdict
+mobile_phone,electronics,mobile phone,"mobile phone,cell phone,phone,smartphone",1250690,携帯電話,けいたいでんわ,keitaidenwa,mobile phone,手机,noun,93,93,jmdict
+cat,animals,cat,"cat,house cat",1467640,猫,ねこ,neko,cat,猫,noun,92,92,jmdict
+dog,animals,dog,"dog,pet dog",1258330,犬,いぬ,inu,dog,狗,noun,92,92,jmdict
+book,home,book,"book,books",1522150,本,ほん,hon,book,书,noun,91,91,jmdict
+bottle,kitchen,bottle,"bottle,water bottle,jar",1491120,瓶,びん,bin,bottle,瓶子,noun,91,91,jmdict
+laptop,electronics,laptop,"laptop,laptop computer,notebook computer",2257490,ノートパソコン,ノートパソコン,notopasokon,laptop,笔记本电脑,noun,90,90,jmdict
+aircraft,vehicles,aircraft,aircraft,1281320,航空機,こうくうき,koukuuki,aircraft,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+alarm_clock,home,alarm clock,"alarm clock,clock",1535340,目覚まし,めざまし,mezamashi,alarm clock,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+ambulance,vehicles,ambulance,ambulance,1229100,救急車,きゅうきゅうしゃ,kyuukyuusha,ambulance,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+ant,animals,ant,ant,1225940,蟻,あり,ari,ant,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+apple,food,apple,apple,1555480,林檎,りんご,ringo,apple,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+balloon,objects,balloon,balloon,1499940,風船,ふうせん,fuusen,balloon,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+bathtub,objects,bathtub,bathtub,1547480,浴槽,よくそう,yokusou,bathtub,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+bear,animals,bear,bear,1246850,熊,くま,kuma,bear,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+bee,animals,bee,bee,1517840,蜂,はち,hachi,bee,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+bicycle,vehicles,bicycle,bicycle,1318290,自転車,じてんしゃ,jitensha,bicycle,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+binoculars,objects,binoculars,"binocular,binoculars",1398710,双眼鏡,そうがんきょう,sougankyou,binoculars,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+bird,animals,bird,bird,1430250,鳥,とり,tori,bird,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+boat,vehicles,boat,boat,1333220,舟艇,しゅうてい,shuutei,boat,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+bomb,objects,bomb,bomb,1475870,爆弾,ばくだん,bakudan,bomb,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+bow_and_arrow,objects,bow and arrow,"arrow,bow and arrow",1228550,弓矢,ゆみや,yumiya,bow and arrow,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+bowl,kitchen,bowl,bowl,1218880,器,うつわ,utsuwa,bowl,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+box,objects,box,box,1585650,箱,はこ,hako,box,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+boy,objects,boy,boy,1349170,少年,しょうねん,shounen,boy,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+bread,food,bread,bread,1358400,食パン,しょくパン,shokupan,bread,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+bust,objects,bust,bust,1237940,胸像,きょうぞう,kyouzou,bust,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+butterfly,objects,butterfly,butterfly,1597640,蝶々,ちょうちょう,chouchou,butterfly,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+calculator,objects,calculator,calculator,1443600,電卓,でんたく,dentaku,calculator,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+candy,objects,candy,candy,1153520,飴,あめ,ame,candy,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+car,vehicles,car,car,1323080,車,くるま,kuruma,car,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+castle,objects,castle,castle,1355710,城,しろ,shiro,castle,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+cattle,objects,cattle,cattle,1231490,牛,うし,ushi,cattle,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+chest_of_drawers,objects,chest of drawers,"chest of drawer,chest of drawers,drawers",1418990,箪笥,たんす,tansu,chest of drawers,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+chicken,objects,chicken,chicken,1252990,鶏,にわとり,niwatori,chicken,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+chisel,objects,chisel,chisel,1446420,刀,かたな,katana,chisel,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+chopsticks,objects,chopsticks,"chopstick,chopsticks",1476410,箸,はし,hashi,chopsticks,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+clock,home,clock,clock,1316140,時計,とけい,tokei,clock,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+closet,objects,closet,closet,1589110,押入れ,おしいれ,oshiire,closet,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+coat,objects,coat,coat,1580340,上着,うわぎ,uwagi,coat,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+coin,objects,coin,coin,1280530,硬貨,こうか,kouka,coin,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+container,objects,container,container,1545370,容器,ようき,youki,container,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+crab,objects,crab,crab,1202410,蟹,かに,kani,crab,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+crown,objects,crown,crown,1181450,王冠,おうかん,oukan,crown,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+cupboard,objects,cupboard,cupboard,1267050,戸棚,とだな,todana,cupboard,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+cutting_board,objects,cutting board,"board,cutting board",1481350,板,いた,ita,cutting board,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+desk,objects,desk,desk,1220210,机,つくえ,tsukue,desk,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+doll,objects,doll,doll,1367120,人形,にんぎょう,ningyou,doll,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+door,home,door,door,1266970,戸,と,to,door,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+drawer,objects,drawer,drawer,1601650,引き出し,ひきだし,hikidashi,drawer,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+drum,objects,drum,drum,1408280,太鼓,たいこ,taiko,drum,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+egg,objects,egg,egg,1549140,卵,たまご,tamago,egg,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+envelope,objects,envelope,envelope,1499690,封筒,ふうとう,fuutou,envelope,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+eraser,objects,eraser,eraser,1350080,消しゴム,けしゴム,keshigomu,eraser,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+fireplace,objects,fireplace,fireplace,1419900,暖炉,だんろ,danro,fireplace,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+fish,animals,fish,fish,1578010,魚,さかな,sakana,fish,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+flag,objects,flag,flag,1220240,旗,はた,hata,flag,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+flower,objects,flower,flower,1194500,花,はな,hana,flower,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+flowerpot,objects,flowerpot,flowerpot,1357380,植木鉢,うえきばち,uekibachi,flowerpot,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+flute,objects,flute,flute,1437310,笛,ふえ,fue,flute,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+footwear,objects,footwear,footwear,1600680,履物,はきもの,hakimono,footwear,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+fountain,objects,fountain,fountain,1390790,泉水,せんすい,sensui,fountain,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+fox,objects,fox,fox,1267340,狐,きつね,kitsune,fox,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+frog,objects,frog,frog,1577460,蛙,かえる,kaeru,frog,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+girl,objects,girl,girl,1531190,娘,むすめ,musume,girl,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+glasses,objects,glasses,"glass,glasses",1577670,眼鏡,メガネ,megane,glasses,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+glove,clothing,glove,glove,1328090,手袋,てぶくろ,tebukuro,glove,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+goldfish,objects,goldfish,goldfish,1242750,金魚,きんぎょ,kingyo,goldfish,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+grape,objects,grape,grape,1499230,葡萄,ぶどう,budou,grape,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+handgun,objects,handgun,handgun,1257760,拳銃,けんじゅう,kenjuu,handgun,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+hat,clothing,hat,hat,1519170,帽子,ぼうし,boushi,hat,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+horizontal_bar,objects,horizontal bar,"bar,horizontal bar",1438030,鉄棒,てつぼう,tetsubou,horizontal bar,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+horse,animals,horse,horse,1471560,馬,うま,uma,horse,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+house,objects,house,house,1337190,宿,やど,yado,house,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+insect,objects,insect,insect,1426680,虫,むし,mushi,insect,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+juice,objects,juice,juice,1335520,汁,しる,shiru,juice,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+kitchen_knife,kitchen,kitchen knife,"kitchen knife,knife",1515530,包丁,ほうちょう,houchou,kitchen knife,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+kite,objects,kite,kite,1581560,凧,たこ,tako,kite,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+knife,kitchen,knife,knife,1348540,小刀,こがたな,kogatana,knife,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+light_bulb,objects,light bulb,"bulb,light bulb",1443170,電球,でんきゅう,denkyuu,light bulb,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+lighthouse,objects,lighthouse,lighthouse,1448730,灯台,とうだい,toudai,lighthouse,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+lipstick,objects,lipstick,lipstick,1276110,口紅,くちべに,kuchibeni,lipstick,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+milk,objects,milk,milk,1464980,乳,ちち,chichi,milk,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+mirror,home,mirror,mirror,1238550,鏡,かがみ,kagami,mirror,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+monkey,objects,monkey,monkey,1177390,猿,さる,saru,monkey,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+mouse,objects,mouse,mouse,1397840,鼠,ネズミ,nezumi,mouse,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+mushroom,objects,mushroom,mushroom,1416010,茸,きのこ,kinoko,mushroom,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+nail,objects,nail,nail,1433880,爪,つめ,tsume,nail,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+necklace,objects,necklace,necklace,1329280,首飾り,くびかざり,kubikazari,necklace,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+organ,objects,organ,organ,1218910,器官,きかん,kikan,organ,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+peach,objects,peach,peach,1448290,桃,もも,momo,peach,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+perfume,objects,perfume,perfume,1283060,香水,こうすい,kousui,perfume,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+pig,objects,pig,pig,1457390,豚,ぶた,buta,pig,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+pillow,home,pillow,pillow,1524860,枕,まくら,makura,pillow,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+plate,kitchen,plate,plate,1299680,皿,さら,sara,plate,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+rabbit,objects,rabbit,rabbit,1443970,兎,うさぎ,usagi,rabbit,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+raven,objects,raven,raven,1171450,烏,カラス,karasu,raven,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+refrigerator,objects,refrigerator,refrigerator,1557110,冷蔵庫,れいぞうこ,reizouko,refrigerator,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+rose,objects,rose,rose,1571760,薔薇,ばら,bara,rose,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+ruler,objects,ruler,ruler,1435520,定規,じょうぎ,jougi,ruler,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+scale,objects,scale,scale,1223090,規模,きぼ,kibo,scale,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+shark,objects,shark,shark,1299670,鮫,サメ,same,shark,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+sheep,objects,sheep,sheep,1546490,羊,ひつじ,hitsuji,sheep,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+shelf,objects,shelf,shelf,1416700,棚,たな,tana,shelf,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+shellfish,objects,shellfish,shellfish,1203100,貝,かい,kai,shellfish,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+shirt,clothing,shirt,shirt,1148640,Ｙシャツ,ワイシャツ,waishatsu,shirt,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+shower,objects,shower,shower,1542820,夕立,ゆうだち,yuudachi,shower,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+sink,objects,sink,sink,1552100,流し,ながし,nagashi,sink,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+skull,objects,skull,skull,1450850,頭骨,とうこつ,toukotsu,skull,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+skyscraper,objects,skyscraper,skyscraper,1523850,摩天楼,まてんろう,matenrou,skyscraper,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+snake,objects,snake,snake,1323350,蛇,へび,hebi,snake,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+sock,clothing,sock,sock,1246740,靴下,くつした,kutsushita,sock,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+spider,objects,spider,spider,1421960,蜘蛛,くも,kumo,spider,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+spoon,kitchen,spoon,spoon,1585630,匙,さじ,saji,spoon,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+stairs,objects,stairs,"stair,stairs",1203020,階,かい,kai,stairs,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+street_light,objects,street light,"light,street light",1204620,街灯,がいとう,gaitou,street light,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+stretcher,objects,stretcher,stretcher,1418150,担架,たんか,tanka,stretcher,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+submarine,objects,submarine,submarine,1391340,潜水艦,せんすいかん,sensuikan,submarine,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+sushi,objects,sushi,sushi,1595650,寿司,すし,sushi,sushi,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+swan,objects,swan,swan,1475330,白鳥,はくちょう,hakuchou,swan,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+sword,objects,sword,sword,1446420,刀,かたな,katana,sword,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+tank,objects,tank,tank,1602800,船,ふね,fune,tank,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+tea,objects,tea,tea,1422570,茶,ちゃ,cha,tea,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+telephone,objects,telephone,telephone,1443840,電話,でんわ,denwa,telephone,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+tiger,objects,tiger,tiger,1267610,虎,とら,tora,tiger,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+toilet,objects,toilet,toilet,1174790,衛生,えいせい,eisei,toilet,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+tool,objects,tool,tool,1454180,道具,どうぐ,dougu,tool,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+toothbrush,objects,toothbrush,toothbrush,1313070,歯ブラシ,はブラシ,haburashi,toothbrush,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+torch,objects,torch,torch,1200600,懐中電灯,かいちゅうでんとう,kaichuudentou,torch,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+tortoise,objects,tortoise,tortoise,1224260,亀,かめ,kame,tortoise,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+towel,objects,towel,towel,1598400,手ぬぐい,てぬぐい,tenugui,towel,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+tower,objects,tower,tower,1446740,塔,とう,tou,tower,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+toy,objects,toy,toy,1217070,玩具,おもちゃ,omocha,toy,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+traffic_light,objects,traffic light,"light,traffic light",1359240,信号,しんごう,shingou,traffic light,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+train,vehicles,train,train,1222700,汽車,きしゃ,kisha,train,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+tree,objects,tree,tree,1534520,木,き,ki,tree,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+umbrella,objects,umbrella,umbrella,1301940,傘,かさ,kasa,umbrella,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+vase,objects,vase,vase,1194870,花瓶,かびん,kabin,vase,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+washing_machine,objects,washing machine,"machine,washing machine",1390990,洗濯機,せんたくき,sentakuki,washing machine,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+watercraft,objects,watercraft,watercraft,1333220,舟艇,しゅうてい,shuutei,watercraft,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+watermelon,objects,watermelon,watermelon,1380890,西瓜,すいか,suika,watermelon,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+whale,objects,whale,whale,1253270,鯨,クジラ,kujira,whale,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+wheel,objects,wheel,wheel,1323080,車,くるま,kuruma,wheel,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+wheelchair,objects,wheelchair,wheelchair,1323090,車椅子,くるまいす,kurumaisu,wheelchair,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+window,home,window,window,1401400,窓,まど,mado,window,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+worm,objects,worm,worm,1426680,虫,むし,mushi,worm,,noun,89,89,auto_openimages_jmdict_exact_gloss_zh_pending
+axe,tools,axe,axe,1497080,斧,おの,ono,axe,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+beehive,objects,beehive,beehive,1400460,巣箱,すばこ,subako,beehive,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+bench,objects,bench,bench,1177640,縁台,えんだい,endai,bench,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+bull,objects,bull,bull,1237200,教書,きょうしょ,kyousho,bull,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+camera,electronics,camera,camera,1594660,写真機,しゃしんき,shashinki,camera,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+cart,objects,cart,cart,1182720,屋台,やたい,yatai,cart,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+cucumber,objects,cucumber,cucumber,1193540,河童,かっぱ,kappa,cucumber,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+curtain,objects,curtain,curtain,1524750,幕,まく,maku,curtain,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+dagger,objects,dagger,dagger,1200620,懐刀,ふところがたな,futokorogatana,dagger,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+deer,objects,deer,deer,1319030,鹿,しか,shika,deer,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+dinosaur,objects,dinosaur,dinosaur,1591710,恐竜,きょうりゅう,kyouryuu,dinosaur,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+duck,objects,duck,duck,1209250,鴨,かも,kamo,duck,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+eagle,objects,eagle,eagle,1562630,鷲,わし,washi,eagle,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+earring,objects,earring,earring,1317260,耳飾り,みみかざり,mimikazari,earring,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+falcon,objects,falcon,falcon,1478360,隼,はやぶさ,hayabusa,falcon,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+hammer,tools,hammer,hammer,1956700,槌,つち,tsuchi,hammer,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+handbag,objects,handbag,handbag,1328160,手提げ,てさげ,tesage,handbag,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+helmet,clothing,helmet,helmet,1209030,兜,かぶと,kabuto,helmet,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+leopard,objects,leopard,leopard,1629070,豹,ひょう,hyou,leopard,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+lily,objects,lily,lily,1488160,百合,ゆり,yuri,lily,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+lion,objects,lion,lion,1311070,獅子,しし,shishi,lion,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+mammal,objects,mammal,mammal,1565260,哺乳類,ほにゅうるい,honyuurui,mammal,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+paddle,objects,paddle,paddle,1589630,櫂,かい,kai,paddle,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+palm_tree,objects,palm tree,"palm tree,tree",1568330,椰子,やし,yashi,palm tree,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+parachute,objects,parachute,parachute,1548660,落下傘,らっかさん,rakkasan,parachute,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+pitcher,objects,pitcher,pitcher,1447260,投手,とうしゅ,toushu,pitcher,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+poster,objects,poster,poster,1427830,張り出し,はりだし,haridashi,poster,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+remote_control,electronics,remote control,"remote,remote control",1143120,リモコン,リモコン,rimokon,remote control,遥控器,noun,88,88,jmdict
+speaker,electronics,speaker,"bluetooth speaker,loudspeaker,mini speaker,sound box,soundbox,speaker",1072240,スピーカー,スピーカー,supiikaa,speaker,扬声器,noun,87,87,jmdict
+game_controller,electronics,game controller,"controller,game controller,gamepad,gaming controller,xbox controller",2861654,ゲームコントローラー,ゲームコントローラー,geemukontoroolaa,game controller,游戏手柄,noun,86,86,jmdict
+rhinoceros,objects,rhinoceros,"rhinocero,rhinoceros",1295160,犀,さい,sai,rhinoceros,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+rifle,objects,rifle,rifle,1348260,小銃,しょうじゅう,shoujuu,rifle,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+saucer,objects,saucer,saucer,1329620,受け皿,うけざら,ukezara,saucer,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+scarf,objects,scarf,scarf,1603900,巻物,まきもの,makimono,scarf,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+sea_turtle,objects,sea turtle,"sea turtle,turtle",1201310,海がめ,うみがめ,umigame,sea turtle,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+serving_tray,objects,serving tray,"serving tray,tray",1396490,膳,ぜん,zen,serving tray,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+shorts,objects,shorts,"short,shorts",2002150,短パン,たんパン,tanpan,shorts,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+snail,objects,snail,snail,1572070,蝸牛,かたつむり,katatsumuri,snail,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+snowman,objects,snowman,snowman,1386510,雪だるま,ゆきだるま,yukidaruma,snowman,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+stethoscope,objects,stethoscope,stethoscope,1428920,聴診器,ちょうしんき,choushinki,stethoscope,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+stool,objects,stool,stool,1745010,踏み台,ふみだい,fumidai,stool,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+tap,objects,tap,tap,1956550,栓,せん,sen,tap,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+tent,objects,tent,tent,1440370,天幕,てんまく,tenmaku,tent,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+tripod,objects,tripod,tripod,1300160,三脚,さんきゃく,sankyaku,tripod,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+truck,vehicles,truck,truck,1412630,台車,だいしゃ,daisha,truck,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+turkey,objects,turkey,turkey,1319520,七面鳥,しちめんちょう,shichimenchou,turkey,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+van,objects,van,van,1683510,急先鋒,きゅうせんぽう,kyuusenpou,van,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+watch,objects,watch,watch,1630860,見張り,みはり,mihari,watch,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+willow,objects,willow,willow,1538490,柳,やなぎ,yanagi,willow,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+wok,objects,wok,wok,1695820,中華鍋,ちゅうかなべ,chuukanabe,wok,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+woodpecker,objects,woodpecker,woodpecker,1692880,啄木,たくぼく,takuboku,woodpecker,,noun,88,88,auto_openimages_jmdict_exact_gloss_zh_pending
+bookcase,objects,bookcase,bookcase,1523140,本箱,ほんばこ,honbako,bookcase,,noun,86,86,auto_openimages_jmdict_exact_gloss_zh_pending
+bottle_opener,kitchen,bottle opener,"bottle opener,opener",1390770,栓抜き,せんぬき,sennuki,bottle opener,,noun,86,86,auto_openimages_jmdict_exact_gloss_zh_pending
+candle,objects,candle,candle,1561240,蝋燭,ろうそく,rousoku,candle,,noun,86,86,auto_openimages_jmdict_exact_gloss_zh_pending
+carrot,objects,carrot,carrot,1367800,人参,にんじん,ninjin,carrot,,noun,86,86,auto_openimages_jmdict_exact_gloss_zh_pending
+dragonfly,objects,dragonfly,dragonfly,1585910,蜻蛉,とんぼ,tonbo,dragonfly,,noun,86,86,auto_openimages_jmdict_exact_gloss_zh_pending
+elephant,objects,elephant,elephant,1351830,象,ぞう,zou,elephant,,noun,86,86,auto_openimages_jmdict_exact_gloss_zh_pending
+giraffe,objects,giraffe,giraffe,1575200,麒麟,きりん,kirin,giraffe,,noun,86,86,auto_openimages_jmdict_exact_gloss_zh_pending
+ladder,tools,ladder,ladder,1436480,梯子,はしご,hashigo,ladder,,noun,86,86,auto_openimages_jmdict_exact_gloss_zh_pending
+maple,objects,maple,maple,2857870,紅葉,もみじ,momiji,maple,,noun,86,86,auto_openimages_jmdict_exact_gloss_zh_pending
+orange,objects,orange,orange,1610170,橙色,だいだいいろ,daidaiiro,orange,,noun,86,86,auto_openimages_jmdict_exact_gloss_zh_pending
+potato,objects,potato,potato,1005930,じゃが芋,じゃがいも,jagaimo,potato,,noun,86,86,auto_openimages_jmdict_exact_gloss_zh_pending
+pumpkin,objects,pumpkin,pumpkin,1582580,南瓜,かぼちゃ,kabocha,pumpkin,,noun,86,86,auto_openimages_jmdict_exact_gloss_zh_pending
+strawberry,objects,strawberry,strawberry,1571460,苺,いちご,ichigo,strawberry,,noun,86,86,auto_openimages_jmdict_exact_gloss_zh_pending
+oyster,objects,oyster,oyster,1182920,牡蠣,かき,kaki,oyster,,noun,85,85,auto_openimages_jmdict_exact_gloss_zh_pending
+barrel,objects,barrel,barrel,1097430,バレル,バレル,bareru,barrel,,noun,84,84,auto_openimages_jmdict_exact_gloss_zh_pending
+fork,kitchen,fork,fork,1110110,フォーク,フォーク,fooku,fork,,noun,84,84,auto_openimages_jmdict_exact_gloss_zh_pending
+violin,objects,violin,violin,1097740,バイオリン,バイオリン,baiorin,violin,,noun,84,84,auto_openimages_jmdict_exact_gloss_zh_pending
+ball,sports,ball,ball,1123550,ボール,ボール,booru,ball,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+banana,food,banana,banana,1099420,バナナ,バナナ,banana,banana,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+bat,sports,bat,bat,1099230,バット,バット,batto,bat,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+bed,home,bed,bed,1119650,ベッド,ベッド,beddo,bed,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+beer,objects,beer,beer,2796520,ビール,ビール,biiru,beer,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+belt,clothing,belt,belt,1120070,ベルト,ベルト,beruto,belt,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+bus,vehicles,bus,"bu,bus",1098390,バス,バス,basu,bus,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+cabbage,objects,cabbage,cabbage,1041870,キャベツ,キャベツ,kyabetsu,cabbage,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+cake,food,cake,cake,1047860,ケーキ,ケーキ,keeki,cake,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+cheese,food,cheese,cheese,1077330,チーズ,チーズ,chiizu,cheese,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+coffee,objects,coffee,coffee,1049180,珈琲,コーヒー,koohii,coffee,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+cookie,objects,cookie,cookie,1043760,クッキー,クッキー,kukkii,cookie,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+cream,objects,cream,cream,1044480,クリーム,クリーム,kuriimu,cream,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+doughnut,objects,doughnut,doughnut,1087690,ドーナツ,ドーナツ,doonatsu,doughnut,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+dress,clothing,dress,dress,1089280,ドレス,ドレス,doresu,dress,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+drill,tools,drill,drill,1089070,ドリル,ドリル,doriru,drill,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+fax,objects,fax,fax,1108180,ＦＡＸ,ファックス,fakkusu,fax,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+frying_pan,objects,frying pan,"frying pan,pan",1111160,フライパン,フライパン,furaipan,frying pan,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+gas_stove,objects,gas stove,"gas stove,stove",1040060,瓦斯,ガス,gasu,gas stove,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+guitar,objects,guitar,guitar,1042820,ギター,ギター,gitaa,guitar,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+hamburger,objects,hamburger,hamburger,1096860,ハンバーガー,ハンバーガー,hanbaagaa,hamburger,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+heater,objects,heater,heater,1070790,ストーブ,ストーブ,sutoobu,heater,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+helicopter,objects,helicopter,helicopter,1118780,ヘリコプター,ヘリコプター,herikoputaa,helicopter,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+ice_cream,objects,ice cream,"cream,ice cream",1013970,アイス,アイス,aisu,ice cream,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+jeans,objects,jeans,"jean,jeans",1064050,Ｇパン,ジーパン,jiipan,jeans,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+lemon,objects,lemon,lemon,1146020,檸檬,レモン,remon,lemon,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+miniskirt,objects,miniskirt,miniskirt,1131240,ミニ,ミニ,mini,miniskirt,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+missile,objects,missile,missile,1130570,ミサイル,ミサイル,misairu,missile,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+motorcycle,objects,motorcycle,motorcycle,1097810,バイク,バイク,baiku,motorcycle,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+panda,objects,panda,panda,1103210,パンダ,パンダ,panda,panda,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+pen,objects,pen,pen,1121380,ペン,ペン,pen,pen,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+piano,objects,piano,piano,1106400,ピアノ,ピアノ,piano,piano,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+pineapple,objects,pineapple,pineapple,1101100,パイナップル,パイナップル,painappuru,pineapple,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+racket,sports,racket,racket,1138710,ラケット,ラケット,raketto,racket,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+rocket,objects,rocket,rocket,1147220,ロケット,ロケット,roketto,rocket,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+salad,objects,salad,salad,1057850,サラダ,サラダ,sarada,salad,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+sandwich,food,sandwich,sandwich,1058580,サンドイッチ,サンドイッチ,sandoicchi,sandwich,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+sewing_machine,objects,sewing machine,"machine,sewing machine",1130640,ミシン,ミシン,mishin,sewing machine,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+ski,sports,ski,ski,1067770,スキー,スキー,sukii,ski,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+skirt,objects,skirt,skirt,1067470,スカート,スカート,sukaato,skirt,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+suit,objects,suit,suit,1066680,スーツ,スーツ,suutsu,suit,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+sunglasses,objects,sunglasses,"sunglass,sunglasses",1058300,サングラス,サングラス,sangurasu,sunglasses,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+table,home,table,table,1078630,テーブル,テーブル,teeburu,table,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+taxi,objects,taxi,taxi,1076190,タクシー,タクシー,takushii,taxi,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+television,electronics,television,television,1080510,テレビ,テレビ,terebi,television,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+tie,objects,tie,tie,1092820,ネクタイ,ネクタイ,nekutai,tie,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+tire,objects,tire,tire,1076120,タイヤ,タイヤ,taiya,tire,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+tomato,objects,tomato,tomato,1085420,トマト,トマト,tomato,tomato,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+trousers,objects,trousers,"trouser,trousers",1074260,洋袴,ズボン,zubon,trousers,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+volleyball,objects,volleyball,volleyball,1099950,バレー,バレー,baree,volleyball,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+wine,kitchen,wine,wine,1148850,ワイン,ワイン,wain,wine,,noun,81,81,auto_openimages_jmdict_exact_gloss_zh_pending
+diaper,objects,diaper,diaper,1270830,お襁褓,おむつ,omutsu,diaper,,noun,80,80,auto_openimages_jmdict_exact_gloss_zh_pending
+dolphin,objects,dolphin,dolphin,1201670,海豚,いるか,iruka,dolphin,,noun,80,80,auto_openimages_jmdict_exact_gloss_zh_pending
+snack,objects,snack,snack,1437030,摘み,つまみ,tsumami,snack,,noun,80,80,auto_openimages_jmdict_exact_gloss_zh_pending
+kettle,objects,kettle,kettle,1605370,薬缶,やかん,yakan,kettle,,noun,78,78,auto_openimages_jmdict_exact_gloss_zh_pending
+printer,objects,printer,printer,1116270,プリンタ,プリンタ,purinta,printer,,noun,78,78,auto_openimages_jmdict_exact_gloss_zh_pending
+scissors,objects,scissors,"scissor,scissors",1573820,鋏,はさみ,hasami,scissors,,noun,78,78,auto_openimages_jmdict_exact_gloss_zh_pending
+toilet_paper,objects,toilet paper,"paper,toilet paper",1084870,トイレットペーパー,トイレットペーパー,toirettopeepaa,toilet paper,,noun,78,78,auto_openimages_jmdict_exact_gloss_zh_pending
+pizza,food,pizza,pizza,1106620,ピザ,ピザ,piza,pizza,,noun,76,76,auto_openimages_jmdict_exact_gloss_zh_pending
+coffee_cup,kitchen,coffee cup,"coffee cup,cup",2223740,コーヒーカップ,コーヒーカップ,koohiikappu,coffee cup,,noun,75,75,auto_openimages_jmdict_exact_gloss_zh_pending
+jellyfish,objects,jellyfish,jellyfish,1592420,水母,クラゲ,kurage,jellyfish,,noun,75,75,auto_openimages_jmdict_exact_gloss_zh_pending
+owl,objects,owl,owl,1568080,梟,ふくろう,fukurou,owl,,noun,75,75,auto_openimages_jmdict_exact_gloss_zh_pending
+polar_bear,animals,polar bear,"bear,polar bear",1841670,白熊,しろくま,shirokuma,polar bear,,noun,75,75,auto_openimages_jmdict_exact_gloss_zh_pending
+popcorn,objects,popcorn,popcorn,2074740,ポップコーン,ポップコーン,poppukoon,popcorn,,noun,75,75,auto_openimages_jmdict_exact_gloss_zh_pending
+seat_belt,clothing,seat belt,"belt,seat belt",1059520,シートベルト,シートベルト,shiitoberuto,seat belt,,noun,75,75,auto_openimages_jmdict_exact_gloss_zh_pending
+snowboard,objects,snowboard,snowboard,2058700,スノーボード,スノーボード,sunooboodo,snowboard,,noun,75,75,auto_openimages_jmdict_exact_gloss_zh_pending
+spatula,objects,spatula,spatula,1510300,箆,へら,hera,spatula,,noun,75,75,auto_openimages_jmdict_exact_gloss_zh_pending
+accordion,objects,accordion,accordion,1015630,アコーディオン,アコーディオン,akoodion,accordion,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+armadillo,objects,armadillo,armadillo,1019590,アルマジロ,アルマジロ,arumajiro,armadillo,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+beaker,objects,beaker,beaker,1104320,ビーカ,ビーカ,biika,beaker,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+bell_pepper,objects,bell pepper,"bell pepper,pepper",1106340,ピーマン,ピーマン,piiman,bell pepper,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+billboard,objects,billboard,billboard,1106070,ビルボード,ビルボード,biruboodo,billboard,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+blender,objects,blender,blender,1130460,ミキサー,ミキサー,mikisaa,blender,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+brassiere,objects,brassiere,brassiere,1113720,ブラジャー,ブラジャー,burajaa,brassiere,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+camel,objects,camel,camel,1041890,キャメル,キャメル,kyameru,camel,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+canary,objects,canary,canary,1037910,金糸雀,カナリア,kanaria,canary,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+canoe,objects,canoe,canoe,1037930,カヌー,カヌー,kanuu,canoe,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+cello,objects,cello,cello,1077640,チェロ,チェロ,chiero,cello,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+chime,objects,chime,chime,1077890,チャイム,チャイム,chaimu,chime,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+christmas_tree,objects,christmas tree,"christmas tree,tree",1044880,クリスマスツリー,クリスマスツリー,kurisumasutsurii,christmas tree,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+cocktail,objects,cocktail,cocktail,1037070,カクテル,カクテル,kakuteru,cocktail,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+convenience_store,objects,convenience store,"convenience store,store",1053280,コンビニ,コンビニ,konbini,convenience store,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+drinking_straw,objects,drinking straw,"drinking straw,straw",1071540,ストロー,ストロー,sutoroo,drinking straw,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+fast_food,objects,fast food,"fast food,food",1108150,ファストフード,ファストフード,fasutofuudo,fast food,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+football,objects,football,football,1110970,フットボール,フットボール,futtobooru,football,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+french_fries,objects,french fries,"french fries,french fry,fries",1125400,ポテト,ポテト,poteto,french fries,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+goggles,objects,goggles,"goggle,goggles",1054110,ゴーグル,ゴーグル,googuru,goggles,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+gondola,objects,gondola,gondola,1054740,ゴンドラ,ゴンドラ,gondora,gondola,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+grapefruit,objects,grapefruit,grapefruit,1047590,グレープフルーツ,グレープフルーツ,gureepufuruutsu,grapefruit,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+hamster,objects,hamster,hamster,1096210,ハムスター,ハムスター,hamusutaa,hamster,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+harmonica,objects,harmonica,harmonica,1094810,ハープ,ハープ,haapu,harmonica,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+harp,objects,harp,harp,1094810,ハープ,ハープ,haapu,harp,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+harpsichord,objects,harpsichord,harpsichord,1077670,チェンバロ,チェンバロ,chienbaro,harpsichord,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+headphones,objects,headphones,"headphone,headphones",1118490,ヘッドホン,ヘッドホン,heddohon,headphones,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+high_heels,objects,high heels,"heels,high heel,high heels",1095360,ハイヒール,ハイヒール,haihiiru,high heels,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+jacket,objects,jacket,jacket,1065170,ジャケット,ジャケット,jaketto,jacket,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+jaguar,objects,jaguar,jaguar,1065130,ジャガー,ジャガー,jagaa,jaguar,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+kangaroo,objects,kangaroo,kangaroo,1039330,カンガルー,カンガルー,kangaruu,kangaroo,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+koala,objects,koala,koala,1049830,コアラ,コアラ,koara,koala,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+lamp,home,lamp,lamp,1140360,ランプ,ランプ,ranpu,lamp,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+limousine,objects,limousine,limousine,1143040,リムジン,リムジン,rimujin,limousine,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+mango,objects,mango,mango,1130020,芒果,マンゴー,mangoo,mango,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+microwave_oven,objects,microwave oven,"microwave oven,oven",1146110,レンジ,レンジ,renji,microwave oven,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+mixer,objects,mixer,mixer,1130460,ミキサー,ミキサー,mikisaa,mixer,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+oboe,objects,oboe,oboe,1033350,オーボエ,オーボエ,ooboe,oboe,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+oven,objects,oven,oven,1032930,オーブン,オーブン,oobun,oven,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+pasta,objects,pasta,pasta,1101460,パスタ,パスタ,pasuta,pasta,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+penguin,objects,penguin,penguin,1121410,ペンギン,ペンギン,pengin,penguin,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+roller_skates,objects,roller skates,"roller skate,roller skates,skates",1146880,ローラースケート,ローラースケート,rooraasukeeto,roller skates,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+sandal,objects,sandal,sandal,1058480,サンダル,サンダル,sandaru,sandal,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+saxophone,objects,saxophone,saxophone,1056740,サックス,サックス,sakkusu,saxophone,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+scoreboard,objects,scoreboard,scoreboard,1069040,スコアボード,スコアボード,sukoaboodo,scoreboard,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+screwdriver,tools,screwdriver,screwdriver,1088560,ドライバー,ドライバー,doraibaa,screwdriver,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+seafood,objects,seafood,seafood,1059590,シーフード,シーフード,shiifuudo,seafood,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+skunk,objects,skunk,skunk,1067740,スカンク,スカンク,sukanku,skunk,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+snowplow,objects,snowplow,snowplow,1139210,ラッセル,ラッセル,rasseru,snowplow,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+squash,objects,squash,squash,1067640,スカッシュ,スカッシュ,sukasshu,squash,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+suitcase,objects,suitcase,suitcase,1086080,トランク,トランク,toranku,suitcase,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+syringe,objects,syringe,syringe,1063090,シリンジ,シリンジ,shirinji,syringe,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+toaster,objects,toaster,toaster,1084530,トースター,トースター,toosutaa,toaster,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+trombone,objects,trombone,trombone,1087550,トロンボーン,トロンボーン,toronboon,trombone,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+trumpet,objects,trumpet,trumpet,1120990,ペット,ペット,petto,trumpet,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+window_blind,home,window blind,"blind,window blind",1113570,ブラインド,ブラインド,buraindo,window blind,,noun,73,73,auto_openimages_jmdict_exact_gloss_zh_pending
+adhesive_tape,objects,adhesive tape,"adhesive tape,tape",2147070,粘着テープ,ねんちゃくテープ,nenchakuteepu,adhesive tape,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+alpaca,animals,alpaca,alpaca,1019470,羊駱駝,アルパカ,arupaka,alpaca,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+antelope,objects,antelope,antelope,1570650,羚羊,れいよう,reiyou,antelope,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+artichoke,objects,artichoke,artichoke,2184310,アーティチョーク,アーティチョーク,aatichooku,artichoke,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+backpack,objects,backpack,backpack,1099000,バックパック,バックパック,bakkupakku,backpack,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+bagel,objects,bagel,bagel,2112790,ベーグル,ベーグル,beeguru,bagel,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+balance_beam,objects,balance beam,"balance beam,beam",2104180,平均台,へいきんだい,heikindai,balance beam,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+band_aid,objects,band-aid,band-aid,2003580,バンドエイド,バンドエイド,bandoeido,band-aid,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+banjo,objects,banjo,banjo,1100170,バンジョー,バンジョー,banjoo,banjo,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+barge,vehicles,barge,barge,2701350,台船,だいせん,daisen,barge,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+beard,objects,beard,beard,1693220,顎髭,あごひげ,agohige,beard,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+beetle,objects,beetle,beetle,1578745,甲虫,こうちゅう,kouchuu,beetle,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+bicycle_helmet,vehicles,bicycle helmet,"bicycle helmet,helmet",2825911,カスク,カスク,kasuku,bicycle helmet,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+bicycle_wheel,vehicles,bicycle wheel,"bicycle wheel,wheel",1804440,銀輪,ぎんりん,ginrin,bicycle wheel,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+bidet,objects,bidet,bidet,1105350,ビデ,ビデ,bide,bidet,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+billiard_table,home,billiard table,"billiard table,table",2856581,玉突き台,たまつきだい,tamatsukidai,billiard table,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+blue_jay,objects,blue jay,"blue jay,jay",1381500,青懸巣,あおかけす,aokakesu,blue jay,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+boot,clothing,boot,boot,1113140,ブート,ブート,buuto,boot,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+briefcase,objects,briefcase,briefcase,1784700,折り鞄,おりかばん,orikaban,briefcase,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+broccoli,objects,broccoli,broccoli,2005660,ブロコリ,ブロコリ,burokori,broccoli,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+bronze_sculpture,objects,bronze sculpture,"bronze sculpture,sculpture",2841043,ブロンズ像,ブロンズぞう,buronzuzou,bronze sculpture,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+brown_bear,animals,brown bear,"bear,brown bear",2059770,羆,ひぐま,higuma,brown bear,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+burrito,objects,burrito,burrito,2600780,ブリート,ブリート,buriito,burrito,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+cake_stand,food,cake stand,"cake stand,stand",2863869,ケーキスタンド,ケーキスタンド,keekisutando,cake stand,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+can_opener,objects,can opener,"can opener,opener",1214570,缶切り,かんきり,kankiri,can opener,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+cannon,objects,cannon,cannon,1786780,大筒,おおづつ,oozutsu,cannon,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+cantaloupe,objects,cantaloupe,cantaloupe,1039380,キャンタロープ,キャンタロープ,kyantaroopu,cantaloupe,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+carnivore,objects,carnivore,carnivore,1827440,肉食獣,にくしょくじゅう,nikushokujuu,carnivore,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+cassette_deck,objects,cassette deck,"cassette deck,deck",1037420,カセットデッキ,カセットデッキ,kasettodekki,cassette deck,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+caterpillar,objects,caterpillar,caterpillar,1625440,裸虫,はだかむし,hadakamushi,caterpillar,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+ceiling_fan,objects,ceiling fan,"ceiling fan,fan",1922460,天井扇,てんじょうせん,tenjousen,ceiling fan,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+centipede,objects,centipede,centipede,1488310,百足,むかで,mukade,centipede,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+chainsaw,objects,chainsaw,chainsaw,2821100,鎖鋸,くさりのこ,kusarinoko,chainsaw,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+cheetah,objects,cheetah,cheetah,2674820,狩猟豹,しゅりょうひょう,shuryouhyou,cheetah,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+coconut,objects,coconut,coconut,2420240,ヤシの実,やしのみ,yashinomi,coconut,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+coffee_table,home,coffee table,"coffee table,table",2837267,リビングテーブル,リビングテーブル,ribinguteeburu,coffee table,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+common_fig,objects,common fig,"common fig,fig",1529700,無花果,いちじく,ichijiku,common fig,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+cosmetics,objects,cosmetics,"cosmetic,cosmetics",1187110,化粧品,けしょうひん,keshouhin,cosmetics,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+couch,objects,couch,couch,1429780,長椅子,ながいす,nagaisu,couch,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+countertop,objects,countertop,countertop,2424850,天板,てんばん,tenban,countertop,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+cowboy_hat,clothing,cowboy hat,"cowboy hat,hat",1036890,カウボーイハット,カウボーイハット,kaubooihatto,cowboy hat,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+crocodile,objects,crocodile,crocodile,1562640,鰐,わに,wani,crocodile,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+croissant,objects,croissant,croissant,1046010,クロワッサン,クロワッサン,kurowassan,croissant,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+crutch,objects,crutch,crutch,1349960,松葉杖,まつばづえ,matsubazue,crutch,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+dice,objects,dice,dice,2215020,賽,さい,sai,dice,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+digital_clock,home,digital clock,"clock,digital clock",1966020,デジタル時計,デジタルどけい,dejitarudokei,digital clock,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+dishwasher,objects,dishwasher,dishwasher,2021560,食洗機,しょくせんき,shokusenki,dishwasher,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+door_handle,home,door handle,"door handle,handle",2830011,ドアハンドル,ドアハンドル,doahandoru,door handle,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+dumbbell,objects,dumbbell,dumbbell,1149960,亜鈴,あれい,arei,dumbbell,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+face_powder,objects,face powder,"face powder,powder",2517290,粉白粉,こなおしろい,konaoshiroi,face powder,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+fedora,objects,fedora,fedora,2484730,フェドーラ,フェドーラ,fedoora,fedora,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+filing_cabinet,objects,filing cabinet,"cabinet,filing cabinet",2003650,ファイルキャビネット,ファイルキャビネット,fairukyabinetto,filing cabinet,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+fire_hydrant,objects,fire hydrant,"fire hydrant,hydrant",1350180,消火栓,しょうかせん,shoukasen,fire hydrant,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+fixed_wing_aircraft,vehicles,fixed-wing aircraft,"aircraft,fixed-wing aircraft",2830655,固定翼機,こていよくき,koteiyokuki,fixed-wing aircraft,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+flashlight,objects,flashlight,flashlight,1111360,フラッシュライト,フラッシュライト,furasshuraito,flashlight,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+flying_disc,objects,flying disc,"disc,flying disc",2468660,フライングディスク,フライングディスク,furaingudisuku,flying disc,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+food_processor,objects,food processor,"food processor,processor",1107390,フードプロセッサー,フードプロセッサー,fuudopurosessaa,food processor,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+french_horn,objects,french horn,"french horn,horn",2074360,フレンチホルン,フレンチホルン,furenchihorun,french horn,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+goat,objects,goat,goat,1303200,山羊,やぎ,yagi,goat,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+golf_ball,sports,golf ball,"ball,golf ball",2462130,ゴルフボール,ゴルフボール,gorufubooru,golf ball,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+golf_cart,objects,golf cart,"cart,golf cart",2462120,ゴルフカート,ゴルフカート,gorufukaato,golf cart,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+goose,objects,goose,goose,2863833,グース,グース,guusu,goose,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+grinder,objects,grinder,grinder,1153020,圧砕機,あっさいき,assaiki,grinder,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+guacamole,objects,guacamole,guacamole,2234450,ワカモレ,ワカモレ,wakamore,guacamole,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+hair_dryer,objects,hair dryer,"dryer,hair dryer",1118180,ヘアドライヤー,ヘアドライヤー,headoraiyaa,hair dryer,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+hair_spray,objects,hair spray,"hair spray,spray",1118160,ヘアスプレー,ヘアスプレー,heasupuree,hair spray,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+hand_dryer,objects,hand dryer,"dryer,hand dryer",1027300,エアータオル,エアータオル,eaataoru,hand dryer,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+harbor_seal,objects,harbor seal,"harbor seal,seal",2158610,銭形海豹,ぜにがたあざらし,zenigataazarashi,harbor seal,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+hedgehog,objects,hedgehog,hedgehog,1601130,針鼠,はりねずみ,harinezumi,hedgehog,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+hippopotamus,objects,hippopotamus,"hippopotamu,hippopotamus",1193590,河馬,かば,kaba,hippopotamus,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+honeycomb,objects,honeycomb,honeycomb,2105960,ハニカム,ハニカム,hanikamu,honeycomb,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+hot_dog,animals,hot dog,"dog,hot dog",1122520,ホットドッグ,ホットドッグ,hottodoggu,hot dog,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+houseplant,objects,houseplant,houseplant,1215030,観葉植物,かんようしょくぶつ,kanyoushokubutsu,houseplant,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+humidifier,objects,humidifier,humidifier,1190280,加湿器,かしつき,kashitsuki,humidifier,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+invertebrate,objects,invertebrate,invertebrate,1672760,無脊椎動物,むせきついどうぶつ,musekitsuidoubutsu,invertebrate,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+ipod,objects,ipod,ipod,5000082,ｉＰｏｄ,アイポッド,aipoddo,ipod,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+jacuzzi,objects,jacuzzi,jacuzzi,2553810,泡風呂,あわぶろ,awaburo,jacuzzi,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+jet_ski,sports,jet ski,"jet ski,ski",2487900,ジェットスキー,ジェットスキー,jiettosukii,jet ski,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+jug,objects,jug,jug,2487960,ジャグ,ジャグ,jagu,jug,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+ladle,objects,ladle,ladle,1881600,杓,しゃく,shaku,ladle,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+ladybug,objects,ladybug,ladybug,1440070,てんとう虫,てんとうむし,tentoumushi,ladybug,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+lantern,objects,lantern,lantern,1039410,カンテラ,カンテラ,kantera,lantern,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+lavender,objects,lavender,lavender,1969690,ラベンダー色,ラベンダーいろ,rabendaairo,lavender,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+lizard,objects,lizard,lizard,1572040,蜥蜴,トカゲ,tokage,lizard,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+lobster,objects,lobster,lobster,2181170,海ザリガニ,うみザリガニ,umizarigani,lobster,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+loveseat,objects,loveseat,loveseat,2827579,ラブソファー,ラブソファー,rabusofaa,loveseat,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+lynx,objects,lynx,lynx,1755420,山猫座,やまねこざ,yamanekoza,lynx,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+magpie,objects,magpie,magpie,2842429,烏鵲,うじゃく,ujaku,magpie,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+marine_mammal,objects,marine mammal,"mammal,marine mammal",1639070,海獣,かいじゅう,kaijuu,marine mammal,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+measuring_cup,kitchen,measuring cup,"cup,measuring cup",2828385,計量カップ,けいりょうカップ,keiryoukappu,measuring cup,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+medical_equipment,objects,medical equipment,"equipment,medical equipment",1638720,医療機器,いりょうきき,iryoukiki,medical equipment,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+microphone,objects,microphone,microphone,1126770,マイクロフォン,マイクロフォン,maikurofon,microphone,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+mixing_bowl,kitchen,mixing bowl,"bowl,mixing bowl",2840135,ミキシングボウル,ミキシングボウル,mikishingubouru,mixing bowl,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+muffin,objects,muffin,muffin,1129200,マフィン,マフィン,mafin,muffin,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+mug,kitchen,mug,mug,2490370,マグ,マグ,magu,mug,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+mule,objects,mule,mule,1574580,騾馬,ラバ,raba,mule,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+office_building,objects,office building,"building,office building",2002830,オフィスビル,オフィスビル,ofisubiru,office building,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+ostrich,objects,ostrich,ostrich,1597340,駝鳥,だちょう,dachou,ostrich,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+otter,objects,otter,otter,1390120,川獺,かわうそ,kawauso,otter,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+pancake,objects,pancake,pancake,1508050,平落,ひらおち,hiraochi,pancake,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+paper_cutter,objects,paper cutter,"cutter,paper cutter",2832023,紙切りナイフ,かみきりナイフ,kamikirinaifu,paper cutter,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+paper_towel,objects,paper towel,"paper towel,towel",2086990,ペーパータオル,ペーパータオル,peepaataoru,paper towel,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+parking_meter,objects,parking meter,"meter,parking meter",1100430,パーキングメーター,パーキングメーター,paakingumeetaa,parking meter,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+parrot,objects,parrot,parrot,1575140,鸚鵡,オウム,oumu,parrot,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+pastry,objects,pastry,pastry,2491860,ペストリー,ペストリー,pesutorii,pastry,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+pear,objects,pear,pear,1899080,梨の実,なしのみ,nashinomi,pear,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+pencil_case,objects,pencil case,"case,pencil case",1487890,筆箱,ふでばこ,fudebako,pencil case,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+pencil_sharpener,objects,pencil sharpener,"pencil sharpener,sharpener",1178600,鉛筆削り,えんぴつけずり,enpitsukezuri,pencil sharpener,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+pizza_cutter,food,pizza cutter,"cutter,pizza cutter",2857306,ピザカッター,ピザカッター,pizakattaa,pizza cutter,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+plastic_bag,objects,plastic bag,"bag,plastic bag",1925640,ポリ袋,ポリぶくろ,poribukuro,plastic bag,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+platter,objects,platter,platter,2828682,皿鉢,さわち,sawachi,platter,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+pomegranate,objects,pomegranate,pomegranate,1703280,柘榴,ざくろ,zakuro,pomegranate,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+porch,objects,porch,porch,2630910,前廊,ぜんろう,zenrou,porch,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+porcupine,objects,porcupine,porcupine,1755340,山荒,やまあらし,yamaarashi,porcupine,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+pressure_cooker,objects,pressure cooker,"cooker,pressure cooker",1153380,圧力鍋,あつりょくなべ,atsuryokunabe,pressure cooker,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+pretzel,objects,pretzel,pretzel,2226050,プレッツェル,プレッツェル,purettsueru,pretzel,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+punching_bag,objects,punching bag,"bag,punching bag",1058640,サンドバッグ,サンドバッグ,sandobaggu,punching bag,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+raccoon,objects,raccoon,raccoon,1138640,ラクーン,ラクーン,rakuun,raccoon,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+radish,objects,radish,radish,1462070,二十日大根,はつかだいこん,hatsukadaikon,radish,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+ratchet,objects,ratchet,ratchet,2167540,爪車,つめぐるま,tsumeguruma,ratchet,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+red_panda,objects,red panda,"panda,red panda",1145500,レッサーパンダ,レッサーパンダ,ressaapanda,red panda,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+reptile,objects,reptile,reptile,1569210,爬虫,はちゅう,hachuu,reptile,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+ring_binder,objects,ring binder,"binder,ring binder",1927740,リングノート,リングノート,ringunooto,ring binder,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+rugby_ball,sports,rugby ball,"ball,rugby ball",2856658,ラグビーボール,ラグビーボール,ragubiibooru,rugby ball,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+scorpion,objects,scorpion,scorpion,1572220,蠍,さそり,sasori,scorpion,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+sculpture,objects,sculpture,sculpture,1428020,彫刻術,ちょうこくじゅつ,choukokujutsu,sculpture,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+sea_lion,objects,sea lion,"lion,sea lion",2554240,海獺,うみうそ,umiuso,sea lion,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+seahorse,objects,seahorse,seahorse,1772960,海馬,かいば,kaiba,seahorse,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+segway,objects,segway,segway,2110320,セグウェイ,セグウェイ,seguwei,segway,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+shotgun,objects,shotgun,shotgun,1303570,散弾銃,さんだんじゅう,sandanjuu,shotgun,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+shrimp,objects,shrimp,shrimp,2259280,小エビ,こエビ,koebi,shrimp,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+skateboard,sports,skateboard,skateboard,1068930,スケボー,スケボー,sukeboo,skateboard,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+slow_cooker,objects,slow cooker,"cooker,slow cooker",2867657,スロークッカー,スロークッカー,surookukkaa,slow cooker,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+snowmobile,objects,snowmobile,snowmobile,1071840,スノーモービル,スノーモービル,sunoomoobiru,snowmobile,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+soap_dispenser,objects,soap dispenser,"dispenser,soap dispenser",2853800,ソープディスペンサー,ソープディスペンサー,soopudisupensaa,soap dispenser,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+sofa_bed,home,sofa bed,"bed,sofa bed",2266660,ソファーベッド,ソファーベッド,sofaabeddo,sofa bed,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+sombrero,objects,sombrero,sombrero,2473880,ソンブレロ,ソンブレロ,sonburero,sombrero,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+squid,objects,squid,squid,2714320,い文字,いもじ,imoji,squid,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+squirrel,objects,squirrel,squirrel,1246890,栗鼠,りす,risu,squirrel,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+stapler,objects,stapler,stapler,2249510,紙綴器,かみつづき,kamitsuzuki,stapler,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+starfish,objects,starfish,starfish,2194790,海星,ひとで,hitode,starfish,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+stationary_bicycle,vehicles,stationary bicycle,"bicycle,stationary bicycle",2835042,ステーショナリーバイク,ステーショナリーバイク,suteeshonariibaiku,stationary bicycle,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+surfboard,sports,surfboard,surfboard,2869183,波乗り板,なみのりいた,naminoriita,surfboard,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+swimming_pool,objects,swimming pool,"pool,swimming pool",2542620,水泳プール,すいえいプール,suieipuuru,swimming pool,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+swimwear,objects,swimwear,swimwear,2865182,スイムウェア,スイムウェア,suimuwea,swimwear,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+tablet_computer,electronics,tablet computer,"computer,tablet computer",1076410,タブレット,タブレット,taburetto,tablet computer,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+taco,objects,taco,taco,2003250,タコス,タコス,takosu,taco,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+tart,objects,tart,tart,2071840,タルト,タルト,taruto,tart,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+teapot,objects,teapot,teapot,1711520,茶瓶,ちゃびん,chabin,teapot,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+teddy_bear,animals,teddy bear,"bear,teddy bear",1079890,テディーベア,テディーベア,tediibea,teddy bear,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+tennis_ball,sports,tennis ball,"ball,tennis ball",2267030,テニスボール,テニスボール,tenisubooru,tennis ball,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+tennis_racket,sports,tennis racket,"racket,tennis racket",2003440,テニスラケット,テニスラケット,tenisuraketto,tennis racket,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+tiara,objects,tiara,tiara,2086940,ティアラ,ティアラ,tiara,tiara,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+tick,objects,tick,tick,1509340,壁蝨,ダニ,dani,tick,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+tin_can,objects,tin can,"can,tin can",2839936,ブリキ缶,ブリキかん,burikikan,tin can,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+traffic_sign,objects,traffic sign,"sign,traffic sign",2093260,交通標識,こうつうひょうしき,koutsuuhyoushiki,traffic sign,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+treadmill,objects,treadmill,treadmill,2499880,トレッドミル,トレッドミル,toreddomiru,treadmill,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+tree_house,objects,tree house,"house,tree house",2835756,ツリーハウス,ツリーハウス,tsuriihausu,tree house,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+turtle,objects,turtle,turtle,2306630,タートル,タートル,taatoru,turtle,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+unicycle,objects,unicycle,unicycle,1167360,一輪車,いちりんしゃ,ichirinsha,unicycle,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+waffle,objects,waffle,waffle,1149080,ワッフル,ワッフル,waffuru,waffle,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+waffle_iron,objects,waffle iron,"iron,waffle iron",2861102,ワッフルメーカー,ワッフルメーカー,waffurumeekaa,waffle iron,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+wall_clock,home,wall clock,"clock,wall clock",1426490,柱時計,はしらどけい,hashiradokei,wall clock,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+wardrobe,objects,wardrobe,wardrobe,1971520,衣装箪笥,いしょうだんす,ishoudansu,wardrobe,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+whisk,objects,whisk,whisk,2808150,ホイッパー,ホイッパー,hoippaa,whisk,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+whiteboard,objects,whiteboard,whiteboard,2587230,白板,はくばん,hakuban,whiteboard,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+wine_glass,kitchen,wine glass,"glass,wine glass",1148880,ワイングラス,ワイングラス,waingurasu,wine glass,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+wine_rack,kitchen,wine rack,"rack,wine rack",2186920,ワインラック,ワインラック,wainrakku,wine rack,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+winter_melon,objects,winter melon,"melon,winter melon",2229420,氈瓜,かもうり,kamouri,winter melon,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+wood_burning_stove,objects,wood-burning stove,"stove,wood-burning stove",2851729,薪ストーブ,まきストーブ,makisutoobu,wood-burning stove,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+wrench,tools,wrench,wrench,2075410,レンチ,レンチ,renchi,wrench,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+zebra,animals,zebra,zebra,1321690,縞馬,シマウマ,shimauma,zebra,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
+zucchini,food,zucchini,zucchini,1074240,ズッキーニ,ズッキーニ,zukkiini,zucchini,,noun,70,70,auto_openimages_jmdict_exact_gloss_zh_pending
