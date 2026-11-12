@@ -1,46 +1,61 @@
 import SwiftData
 import SwiftUI
 
-struct ExpandedObjectDetailLayout {
+struct ExpandedObjectDetailLayout: Layout {
     private static let cardHorizontalPadding: CGFloat = 16
+    private static let verticalPadding: CGFloat = 20
+    private static let minimumImageSideLength: CGFloat = 72
     private static let maximumImageSideLength: CGFloat = 420
     private static let textSpacing: CGFloat = 28
-    private static let textBlockHeight: CGFloat = 176
 
     let containerSize: CGSize
 
-    var cardFrame: CGRect {
-        CGRect(
-            x: 0,
-            y: 0,
-            width: containerSize.width,
-            height: containerSize.height
-        )
+    private var textProposal: ProposedViewSize {
+        ProposedViewSize(width: max(containerSize.width - 64, 0), height: nil)
     }
 
-    var imageFrame: CGRect {
-        let imageSideLength = min(
-            max(cardFrame.width - (Self.cardHorizontalPadding * 2), 0),
-            max(cardFrame.height - Self.textSpacing - Self.textBlockHeight - 96, 0),
+    func frames(textHeight: CGFloat) -> (card: CGRect, image: CGRect, text: CGRect) {
+        let largestImage = min(
+            max(containerSize.width - 2 * Self.cardHorizontalPadding, 0),
             Self.maximumImageSideLength
         )
-        let contentHeight = imageSideLength + Self.textSpacing + Self.textBlockHeight
-        let contentTop = max((cardFrame.height - contentHeight) / 2, 40)
-
-        return CGRect(
-            x: cardFrame.midX - (imageSideLength / 2),
-            y: cardFrame.minY + contentTop,
-            width: imageSideLength,
-            height: imageSideLength
+        let availableImageHeight = containerSize.height - textHeight - Self.textSpacing - 2 * Self.verticalPadding
+        let imageSide = min(largestImage, max(Self.minimumImageSideLength, availableImageHeight))
+        let contentHeight = imageSide + Self.textSpacing + textHeight
+        let cardHeight = max(containerSize.height, contentHeight + 2 * Self.verticalPadding)
+        let card = CGRect(origin: .zero, size: CGSize(width: containerSize.width, height: cardHeight))
+        let image = CGRect(
+            x: card.midX - imageSide / 2,
+            y: (cardHeight - contentHeight) / 2,
+            width: imageSide,
+            height: imageSide
         )
+        let textWidth = textProposal.width ?? 0
+        let text = CGRect(
+            x: card.midX - textWidth / 2,
+            y: image.maxY + Self.textSpacing,
+            width: textWidth,
+            height: textHeight
+        )
+        return (card, image, text)
     }
 
-    var textTopY: CGFloat {
-        imageFrame.maxY + Self.textSpacing
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        frames(textHeight: subviews[1].sizeThatFits(textProposal).height).card.size
     }
 
-    var textWidth: CGFloat {
-        max(cardFrame.width - 64, 0)
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        let frames = frames(textHeight: subviews[1].sizeThatFits(textProposal).height)
+        subviews[0].place(
+            at: CGPoint(x: bounds.minX + frames.image.minX, y: bounds.minY + frames.image.minY),
+            anchor: .topLeading,
+            proposal: ProposedViewSize(frames.image.size)
+        )
+        subviews[1].place(
+            at: CGPoint(x: bounds.minX + frames.text.minX, y: bounds.minY + frames.text.minY),
+            anchor: .topLeading,
+            proposal: textProposal
+        )
     }
 }
 
@@ -51,11 +66,11 @@ enum ExpandedObjectDetailStyle {
 
 enum ExpandedObjectDetailNavigation {
     static let usesSystemZoomTransition = false
-    static let usesSystemBackGesture = false
-    static let usesManualFrameOverlayTransition = true
-    static let usesHeroImageTransitionLayer = true
+    static let usesSystemBackGesture = true
+    static let usesManualFrameOverlayTransition = false
+    static let usesHeroImageTransitionLayer = false
     static let scalesLiveDetailViewDuringTransition = false
-    static let usesOverlayBackButton = true
+    static let usesOverlayBackButton = false
     static let usesPagedCardSwipe = true
 }
 
@@ -158,8 +173,9 @@ struct VocabularyDetailImagePaths: Equatable {
 struct ExpandedVocabularyDetailView: View {
     let session: VocabularyDetailSession
     let onDismiss: (() -> Void)?
-    let dismissButtonSafeAreaTop: CGFloat
     let loadsFullResolutionImages: Bool
+    let onSelectionChange: ((UUID?) -> Void)?
+    private let prioritizesSystemBack: Bool
 
     private let theme = AppTheme()
     @Environment(\.dismiss) private var dismiss
@@ -173,13 +189,15 @@ struct ExpandedVocabularyDetailView: View {
     init(
         session: VocabularyDetailSession,
         onDismiss: (() -> Void)? = nil,
-        dismissButtonSafeAreaTop: CGFloat = 0,
-        loadsFullResolutionImages: Bool = true
+        loadsFullResolutionImages: Bool = true,
+        onSelectionChange: ((UUID?) -> Void)? = nil,
+        prioritizesSystemBack: Bool = false
     ) {
         self.session = session
         self.onDismiss = onDismiss
-        self.dismissButtonSafeAreaTop = dismissButtonSafeAreaTop
         self.loadsFullResolutionImages = loadsFullResolutionImages
+        self.onSelectionChange = onSelectionChange
+        self.prioritizesSystemBack = prioritizesSystemBack
         _visibleItems = State(initialValue: session.items)
         _selectedID = State(initialValue: session.selectedID)
     }
@@ -194,37 +212,36 @@ struct ExpandedVocabularyDetailView: View {
                 GeometryReader { geometry in
                     let layout = ExpandedObjectDetailLayout(containerSize: geometry.size)
 
-                    detailCard(for: item, layout: layout)
-                        .frame(width: layout.cardFrame.width, height: layout.cardFrame.height)
-                        .removalFlight(
-                            isRemoving: removingID == item.id,
-                            containerSize: geometry.size
-                        )
+                    ViewThatFits(in: .vertical) {
+                        detailCard(for: item, layout: layout)
+                        ScrollView(.vertical) {
+                            detailCard(for: item, layout: layout)
+                        }
+                        .scrollBounceBehavior(.basedOnSize, axes: .vertical)
+                    }
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .background {
+                        if prioritizesSystemBack {
+                            VocabularyPagerBackGesturePriority()
+                        }
+                    }
+                    .removalFlight(
+                        isRemoving: removingID == item.id,
+                        containerSize: geometry.size
+                    )
                 }
                 .tag(Optional(item.id))
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
-        .background(theme.background)
-        .ignoresSafeArea()
-        .overlay(alignment: .topLeading) {
-            if let onDismiss {
-                BackGlassButton(action: onDismiss)
-                    .padding(
-                        .top,
-                        VocabularyDetailBackButtonPlacement.topPadding(
-                            safeAreaTop: dismissButtonSafeAreaTop
-                        )
-                    )
-                    .padding(.leading, 16)
-            }
-        }
+        .background(prioritizesSystemBack ? theme.surfaceInteractiveHighest : theme.background)
+        .onChange(of: selectedID) { _, id in onSelectionChange?(id) }
     }
 
     private func detailCard(for item: CaptureItem, layout: ExpandedObjectDetailLayout) -> some View {
         let imagePaths = VocabularyDetailImagePaths(item: item)
 
-        return VStack(spacing: 28) {
+        return layout {
             ProgressiveStoredImageView(
                 previewRelativePath: imagePaths.previewPath,
                 fullRelativePath: loadsFullResolutionImages ? imagePaths.fullPath : nil,
@@ -233,15 +250,11 @@ struct ExpandedVocabularyDetailView: View {
             ) {
                 Color.clear
             }
-            .frame(width: layout.imageFrame.width, height: layout.imageFrame.height)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .vocabularyDetailTargetImageFrame(id: VocabularyDetailTransition.sourceID(for: item))
 
-            detailText(for: item, width: layout.textWidth)
+            detailText(for: item)
         }
-        .padding(.top, max(layout.imageFrame.minY - layout.cardFrame.minY, 0))
-        .padding(.horizontal, 16)
-        .padding(.bottom, 20)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .appCardSurface(
             theme: theme,
             depth: .card,
@@ -250,7 +263,7 @@ struct ExpandedVocabularyDetailView: View {
         )
     }
 
-    private func detailText(for item: CaptureItem, width: CGFloat) -> some View {
+    private func detailText(for item: CaptureItem) -> some View {
         VStack(spacing: 8) {
             Text(item.japanese)
                 .font(AppTypography.displayMedium.weight(.medium))
@@ -292,7 +305,7 @@ struct ExpandedVocabularyDetailView: View {
                 .disabled(removingID != nil)
             }
         }
-        .frame(width: width)
+        .frame(maxWidth: .infinity)
     }
 
     private func speakPronunciation() {

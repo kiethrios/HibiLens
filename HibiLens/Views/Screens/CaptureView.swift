@@ -1,10 +1,3 @@
-//
-//  CaptureView.swift
-//  HibiLens
-//
-//  Created by kiethrios on 2026/4/10.
-//
-
 import Foundation
 import PhotosUI
 import SwiftData
@@ -33,6 +26,7 @@ struct CaptureView: View {
     @State private var imageLabelClassificationTask: Task<Void, Never>?
     @State private var captureWorkflowID: UUID?
     @State private var normalizedVisibleCameraRect: CGRect?
+    @State private var controlOrientation: UIInterfaceOrientation = .portrait
 
     var body: some View {
         GeometryReader { geometry in
@@ -41,16 +35,6 @@ struct CaptureView: View {
                     .ignoresSafeArea()
 
                 previewOverlay
-
-                if subjectLiftPreview == nil {
-                    focusSquare(size: focusSquareSize(in: geometry))
-                        .position(
-                            x: geometry.size.width / 2,
-                            y: focusSquareCenterY(in: geometry)
-                        )
-                }
-
-                closeButtonOverlay(in: geometry)
 
                 if let subjectLiftPreview {
                     subjectLiftPreviewOverlay(subjectLiftPreview, in: geometry)
@@ -63,6 +47,7 @@ struct CaptureView: View {
             .background(theme.cameraPreviewBase)
             .ignoresSafeArea()
         }
+        .background(CaptureInterfaceOrientationReader(orientation: $controlOrientation).allowsHitTesting(false))
         .task {
             camera.prepare()
             await prewarmImageLabelClassifier()
@@ -84,8 +69,6 @@ struct CaptureView: View {
                 }
             )
         }
-        .toolbar(.hidden, for: .navigationBar)
-        .navigationBarBackButtonHidden(true)
     }
 
     private var previewOverlay: some View {
@@ -94,31 +77,9 @@ struct CaptureView: View {
         .ignoresSafeArea()
     }
 
-    private func focusSquare(size: CGFloat) -> some View {
-        ZStack {
-            cornerBracket(.topLeading)
-            cornerBracket(.topTrailing)
-            cornerBracket(.bottomLeading)
-            cornerBracket(.bottomTrailing)
-
-            Circle()
-                .fill(theme.cameraGuidanceAccent)
-                .frame(width: 4, height: 4)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
-                .offset(x: -22)
-        }
-        .frame(width: size, height: size)
-    }
-
-    private func cornerBracket(_ alignment: Alignment) -> some View {
-        CornerBracketShape(alignment: alignment)
-            .stroke(theme.cameraGuidanceStroke, style: StrokeStyle(lineWidth: 1.2, lineCap: .square))
-            .frame(width: 24, height: 24)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: alignment)
-    }
-
     private func footer(in geometry: GeometryProxy) -> some View {
         let cameraControlForeground = theme.cameraControlForeground
+        let layout = CaptureControlGeometry(size: geometry.size, insets: geometry.safeAreaInsets, orientation: controlOrientation)
 
         return VStack {
             Spacer(minLength: 0)
@@ -133,6 +94,7 @@ struct CaptureView: View {
                                 camera.selectZoomPreset(preset.id)
                             } label: {
                                 Text(preset.label)
+                                    .rotationEffect(.degrees(-layout.rotationDegrees))
                                     .font(AppTypography.labelSmall)
                                     .foregroundStyle(
                                         isSelected ? theme.cameraPreviewBase : cameraControlForeground
@@ -155,22 +117,18 @@ struct CaptureView: View {
                     .frame(maxWidth: .infinity)
                 }
 
-                ZStack {
-                    HStack {
-                        PhotosPicker(selection: $selectedPhotoItem, matching: .images) {
-                            Image(systemName: "photo.on.rectangle.angled")
-                                .font(AppTypography.headlineMedium)
-                                .foregroundStyle(cameraControlForeground)
-                                .frame(width: 44, height: 44)
-                        }
-                        .disabled(isCaptureControlBusy)
-                        .buttonStyle(.plain)
-                        .appCircularGlassControl(fill: theme.cameraControlSurface)
-                        .frame(width: 90, height: 90, alignment: .leading)
-                        .padding(.leading, 43)
-
-                        Spacer()
+                HStack(spacing: 0) {
+                    PhotosPicker(selection: $selectedPhotoItem, matching: .images) {
+                        Image(systemName: "photo.on.rectangle.angled")
+                            .rotationEffect(.degrees(-layout.rotationDegrees))
+                            .font(AppTypography.headlineMedium)
+                            .foregroundStyle(cameraControlForeground)
+                            .frame(width: 44, height: 44)
                     }
+                    .disabled(isCaptureControlBusy)
+                    .buttonStyle(.plain)
+                    .appCircularGlassControl(fill: theme.cameraControlSurface)
+                    .frame(maxWidth: .infinity)
 
                     Button(action: capturePhoto) {
                         shutterButton
@@ -178,25 +136,23 @@ struct CaptureView: View {
                     .disabled(isCaptureControlBusy)
                     .buttonStyle(.plain)
                     .accessibilityLabel(AppL10n.Capture.capturePhoto)
+                    .frame(maxWidth: .infinity)
+
+                    Color.clear
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 44)
+                        .accessibilityHidden(true)
+                        .allowsHitTesting(false)
                 }
-                .frame(maxWidth: 448)
             }
-            .padding(.bottom, max(39, geometry.safeAreaInsets.bottom + 5))
+            .frame(maxWidth: 448)
+            .padding(.leading, layout.insets.leading + AppLayout.screenHorizontalPadding)
+            .padding(.trailing, layout.insets.trailing + AppLayout.screenHorizontalPadding)
+            .padding(.bottom, max(39, layout.insets.bottom + 5))
         }
-    }
-
-    private func closeButtonOverlay(in geometry: GeometryProxy) -> some View {
-        VStack {
-            HStack {
-                BackGlassButton(action: { dismiss() })
-
-                Spacer()
-            }
-            .padding(.top, max(geometry.safeAreaInsets.top, 12))
-            .padding(.leading, 43)
-
-            Spacer()
-        }
+        .frame(width: layout.canvasSize.width, height: layout.canvasSize.height)
+        .rotationEffect(.degrees(layout.rotationDegrees))
+        .frame(width: geometry.size.width, height: geometry.size.height)
     }
 
     private var shutterButton: some View {
@@ -273,23 +229,6 @@ struct CaptureView: View {
         .padding(.vertical, 18)
         .background(theme.cameraMessageSurface, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
         .padding(.horizontal, 32)
-    }
-
-    private func focusSquareSize(in geometry: GeometryProxy) -> CGFloat {
-        geometry.size.height < 600 ? 156 : 258
-    }
-
-    private func focusSquareCenterY(in geometry: GeometryProxy) -> CGFloat {
-        let size = focusSquareSize(in: geometry)
-        let halfSize = size / 2
-        let bottomPadding = max(39, geometry.safeAreaInsets.bottom + 5)
-        let zoomRowHeight: CGFloat = camera.availableZoomPresets.isEmpty ? 0 : 44 + 12
-        let footerHeight = 90 + bottomPadding + zoomRowHeight
-        let footerTop = geometry.size.height - footerHeight
-        let preferred = geometry.size.height * 0.48
-        let minY = geometry.safeAreaInsets.top + halfSize
-        let maxY = footerTop - 12 - halfSize
-        return min(max(preferred, minY), maxY)
     }
 
     private func capturePhoto() {

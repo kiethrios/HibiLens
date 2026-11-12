@@ -3,14 +3,11 @@ import SwiftData
 
 struct ReviewView: View {
     private enum ReviewLayout {
-        static let columnCount = ReviewVisualRefillSpec.columnCount
         static let columnSpacing = ReviewVisualRefillSpec.columnSpacing
-        static let segmentedControlHeight = ReviewVisualRefillSpec.segmentedControlHeight
-        static let segmentedControlMaxWidth = ReviewVisualRefillSpec.segmentedControlMaxWidth
         static let emptyStateMinHeight: CGFloat = 360
         static let emptyStateFrameHeight: CGFloat = 236
-        static let topScrollClearance = segmentedControlHeight + AppLayout.reviewFloatingControlTopInset + AppLayout.bottomNavContentInset
-        static let bottomScrollClearance = AppLayout.bottomNavBarHeight + AppLayout.bottomNavContentInset
+        static let topScrollClearance: CGFloat = AppLayout.screenTopPadding + 48
+        static let bottomScrollClearance = AppLayout.bottomNavContentInset
     }
 
     private enum ReviewTab: CaseIterable, Identifiable, Hashable {
@@ -53,9 +50,14 @@ struct ReviewView: View {
     let transitionNamespace: Namespace.ID?
 
     @Environment(\.modelContext) private var modelContext
+    @ScaledMetric(relativeTo: .body)
+    private var minimumCardWidth = ReviewVisualRefillSpec.minimumCardWidth
     @State private var selectedTab: ReviewTab = .learning
     @State private var isDeleteModeActive = false
     @State private var cardPendingDeletion: VocabularyCard?
+    @State private var detailSession: VocabularyDetailSession?
+    @State private var highlightedCardID: UUID?
+    @State private var allowsSplitDetail = false
     @Query(sort: \VocabularyCard.capturedAt, order: .reverse) private var cards: [VocabularyCard]
 
     init(
@@ -67,47 +69,93 @@ struct ReviewView: View {
     }
 
     var body: some View {
+        GeometryReader { geometry in
+            let supportsSplit = geometry.size.width >= 760 && geometry.size.width > geometry.size.height
+            HStack(spacing: 0) {
+                reviewBrowser(safeAreaInsets: geometry.safeAreaInsets)
+                    .frame(maxWidth: .infinity)
+                if supportsSplit, let session = detailSession {
+                    Divider()
+                    ExpandedVocabularyDetailView(
+                        session: session,
+                        onDismiss: closeSplitDetail,
+                        onSelectionChange: { highlightedCardID = $0 }
+                    )
+                    .id(session.selectedID)
+                    .frame(maxWidth: .infinity)
+                    .clipped()
+                }
+            }
+            .onAppear { allowsSplitDetail = supportsSplit }
+            .onChange(of: supportsSplit) { _, supported in
+                allowsSplitDetail = supported
+                if !supported, let session = detailSession,
+                   let item = session.items.first(where: { $0.id == highlightedCardID }) {
+                    closeSplitDetail()
+                    onOpenCard(item, session.items, session.source)
+                }
+            }
+        }
+        .onChange(of: selectedTab) { _, _ in
+            closeSplitDetail()
+            dismissDeleteModeIfNeeded(for: .segmentedControl)
+        }
+        .toolbar {
+            if detailSession != nil {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button(AppL10n.Common.close, systemImage: "xmark", action: closeSplitDetail)
+                }
+            }
+        }
+        .alert(ReviewVisualRefillSpec.deleteAlertTitle, isPresented: deleteConfirmationBinding) {
+            Button(AppL10n.Common.cancel, role: .cancel) { cardPendingDeletion = nil }
+            Button(ReviewVisualRefillSpec.deleteConfirmTitle, role: .destructive) { confirmDeletion() }
+        }
+    }
+
+    private func reviewBrowser(safeAreaInsets: EdgeInsets) -> some View {
         TabView(selection: $selectedTab) {
             ForEach(ReviewTab.allCases) { tab in
-                reviewPage(for: tab)
+                reviewPage(for: tab, safeAreaInsets: safeAreaInsets)
                     .tag(tab)
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
-        .ignoresSafeArea(.container, edges: .bottom)
+        .ignoresSafeArea(.container, edges: .vertical)
         .animation(.easeInOut(duration: 0.2), value: selectedTab)
         .overlay(alignment: .top) {
-            topFloatingSegmentedControl
-        }
-        .alert(ReviewVisualRefillSpec.deleteAlertTitle, isPresented: deleteConfirmationBinding) {
-            Button(AppL10n.Common.cancel, role: .cancel) {
-                cardPendingDeletion = nil
-            }
-
-            Button(ReviewVisualRefillSpec.deleteConfirmTitle, role: .destructive) {
-                confirmDeletion()
-            }
+            reviewFilter
+                .frame(maxWidth: 360)
+                .padding(.horizontal, AppLayout.screenHorizontalPadding)
+                .padding(.top, AppLayout.screenTopPadding)
         }
     }
 
-    private func reviewPage(for tab: ReviewTab) -> some View {
+    private func reviewPage(for tab: ReviewTab, safeAreaInsets: EdgeInsets) -> some View {
         GeometryReader { proxy in
-            ScrollView(.vertical, showsIndicators: false) {
-                ZStack(alignment: .top) {
-                    Color.clear
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            dismissDeleteModeIfNeeded(for: .background)
-                        }
+            ScrollViewReader { scrollProxy in
+                ScrollView(.vertical, showsIndicators: false) {
+                    ZStack(alignment: .top) {
+                        Color.clear
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                dismissDeleteModeIfNeeded(for: .background)
+                            }
 
-                    reviewColumns(for: tab)
-                        .appScreenPadding(
-                            top: ReviewLayout.topScrollClearance,
-                            bottom: ReviewLayout.bottomScrollClearance
-                        )
+                        reviewColumns(for: tab)
+                            .appScreenPadding(
+                                top: ReviewLayout.topScrollClearance + safeAreaInsets.top,
+                                bottom: ReviewLayout.bottomScrollClearance + safeAreaInsets.bottom
+                            )
+                    }
+                    .frame(maxWidth: .infinity)
+                    .frame(minHeight: proxy.size.height, alignment: .top)
                 }
-                .frame(maxWidth: .infinity)
-                .frame(minHeight: proxy.size.height, alignment: .top)
+                .onChange(of: proxy.size.width) { _, _ in
+                    if let highlightedCardID {
+                        scrollProxy.scrollTo(highlightedCardID, anchor: .center)
+                    }
+                }
             }
         }
         .scrollBounceBehavior(.basedOnSize, axes: .vertical)
@@ -116,49 +164,13 @@ struct ReviewView: View {
         }
     }
 
-    private var topFloatingSegmentedControl: some View {
-        segmentedControl
-            .padding(.top, AppLayout.reviewFloatingControlTopInset)
-            .padding(.horizontal, AppLayout.reviewFloatingControlHorizontalInset)
-            .frame(maxWidth: .infinity)
-    }
-
-    private var segmentedControl: some View {
-        HStack(spacing: 0) {
+    private var reviewFilter: some View {
+        Picker(AppL10n.Nav.review, selection: $selectedTab) {
             ForEach(ReviewTab.allCases) { tab in
-                Button {
-                    withAnimation(.easeInOut(duration: 0.2)) {
-                        selectedTab = tab
-                        dismissDeleteModeIfNeeded(for: .segmentedControl)
-                    }
-                } label: {
-                    Text(tab.title)
-                        .font(AppTypography.titleSmall.weight(.semibold))
-                        .foregroundStyle(tab == selectedTab ? theme.primaryText : theme.secondaryText)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 36)
-                        .contentShape(Rectangle())
-                        .background {
-                            if tab == selectedTab {
-                                Capsule()
-                                    .fill(theme.lensMuted.opacity(0.72))
-                            }
-                        }
-                }
-                .buttonStyle(.plain)
+                Text(tab.title).tag(tab)
             }
         }
-        .padding(6)
-        .frame(maxWidth: ReviewLayout.segmentedControlMaxWidth)
-        .frame(height: ReviewLayout.segmentedControlHeight)
-        .modifier(ReviewSegmentedControlGlassSurface(theme: theme))
-        .overlay {
-            Capsule()
-                .stroke(theme.lensAccent.opacity(0.08), lineWidth: 1)
-                .allowsHitTesting(false)
-        }
-        .appAmbientDepth(theme: theme, depth: .elevated, yOffset: 4)
-        .frame(maxWidth: .infinity)
+        .pickerStyle(.segmented)
     }
 
     private func reviewColumns(for tab: ReviewTab) -> some View {
@@ -170,18 +182,26 @@ struct ReviewView: View {
             if reviewCards.isEmpty {
                 reviewEmptyState(for: tab)
             } else {
-                MasonryGridLayout(columnCount: ReviewLayout.columnCount, spacing: ReviewLayout.columnSpacing) {
+                MasonryGridLayout(minimumColumnWidth: minimumCardWidth, spacing: ReviewLayout.columnSpacing) {
                     ForEach(reviewCards) { card in
                         let item = card.captureItem()
 
                         VocabularyReviewCard(
                             item: item,
-                            onTap: { onOpenCard(item, items, source) },
+                            onTap: { openCard(item, items: items, source: source) },
                             isDeleteModeActive: isDeleteModeActive,
                             onLongPress: enterDeleteMode,
                             onDelete: { cardPendingDeletion = card },
                             transitionNamespace: transitionNamespace
                         )
+                        .overlay {
+                            if highlightedCardID == item.id {
+                                RoundedRectangle(cornerRadius: AppLayout.keepsakeCardCornerRadius)
+                                    .stroke(theme.lensAccent, lineWidth: 2)
+                                    .allowsHitTesting(false)
+                            }
+                        }
+                        .id(item.id)
                     }
                 }
             }
@@ -227,6 +247,20 @@ struct ReviewView: View {
         .frame(minHeight: ReviewLayout.emptyStateMinHeight, alignment: .center)
     }
 
+    private func openCard(_ item: CaptureItem, items: [CaptureItem], source: VocabularyDetailSource) {
+        guard allowsSplitDetail else {
+            onOpenCard(item, items, source)
+            return
+        }
+        highlightedCardID = item.id
+        detailSession = VocabularyDetailSession(selected: item, in: items, source: source)
+    }
+
+    private func closeSplitDetail() {
+        detailSession = nil
+        highlightedCardID = nil
+    }
+
     private func cards(for tab: ReviewTab) -> [VocabularyCard] {
         switch tab {
         case .learning:
@@ -267,6 +301,7 @@ struct ReviewView: View {
         guard let card = cardPendingDeletion else { return }
 
         ReviewCardDeletion.delete(card, in: modelContext)
+        if highlightedCardID == card.id { closeSplitDetail() }
         cardPendingDeletion = nil
     }
 
@@ -282,22 +317,6 @@ struct ReviewView: View {
         }
     }
 
-}
-
-private struct ReviewSegmentedControlGlassSurface: ViewModifier {
-    let theme: AppTheme
-
-    func body(content: Content) -> some View {
-        if #available(iOS 26, *) {
-            content.glassEffect(.regular.tint(theme.glassShellTint), in: .capsule)
-        } else {
-            content.background(
-                Capsule()
-                    .fill(theme.surfaceBase.opacity(0.7))
-                    .background(.ultraThinMaterial, in: Capsule())
-            )
-        }
-    }
 }
 
 #Preview {

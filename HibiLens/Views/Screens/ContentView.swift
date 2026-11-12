@@ -2,146 +2,75 @@ import SwiftData
 import SwiftUI
 import UIKit
 
-enum RootNavigationTransitionDirection: Equatable {
-    case forward
-    case backward
-
-    init?(from source: NavDestination, to destination: NavDestination) {
-        guard source != destination,
-              let sourceIndex = Self.index(of: source),
-              let destinationIndex = Self.index(of: destination) else {
-            return nil
-        }
-
-        self = destinationIndex > sourceIndex ? .forward : .backward
-    }
-
-    private static func index(of destination: NavDestination) -> Int? {
-        switch destination {
-        case .home: 0
-        case .review: 1
-        case .personal: 2
-        case .capture: nil
-        }
-    }
-}
-
 struct ContentView: View {
     private enum Route: Hashable {
         case capture
+        case vocabularyDetail(VocabularyDetailSession)
     }
 
-    private let vocabularyDetailAnimationDuration: TimeInterval = 0.42
-    private let vocabularyDetailAnimation = Animation.spring(response: 0.42, dampingFraction: 0.88)
-    @Environment(\.accessibilityReduceMotion) private var accessibilityReduceMotion
+    private let theme = AppTheme()
     @State private var activeDestination: NavDestination = .home
-    @State private var rootNavigationDirection: RootNavigationTransitionDirection = .forward
-    @State private var path: [Route] = []
-    @State private var vocabularyDetailSourceFrames: [UUID: CGRect] = [:]
-    @State private var activeVocabularyDetailPresentation: VocabularyDetailPresentation?
+    @State private var homePath: [Route] = []
+    @State private var reviewPath: [Route] = []
 
     var body: some View {
-        ZStack {
-            NavigationStack(path: $path) {
-                BottomNavScreen(activeDestination: $activeDestination) { destination in
-                    if destination == .capture {
-                        presentCapture()
-                    } else {
-                        selectRootDestination(destination)
+        TabView(selection: $activeDestination) {
+            NavigationStack(path: $homePath) {
+                HomeView(
+                    onCapture: presentCapture,
+                    onSeeAll: presentReview,
+                    onOpenCard: { item, items in
+                        openVocabularyDetail(item, in: items, source: .todaysCaptures)
                     }
-                } content: {
-                    rootContent
-                        .id(activeDestination.id)
-                        .transition(rootContentTransition)
-                }
-                .navigationDestination(for: Route.self) { route in
-                    switch route {
-                    case .capture:
-                        CaptureView()
-                    }
-                }
-            }
-
-            if let activeVocabularyDetailPresentation {
-                VocabularyDetailTransitionOverlay(
-                    presentation: activeVocabularyDetailPresentation,
-                    onDismiss: closeVocabularyDetail
                 )
-                .zIndex(10)
+                .navigationDestination(for: Route.self, destination: destination)
             }
-        }
-        .coordinateSpace(name: VocabularyDetailTransition.coordinateSpaceName)
-        .onPreferenceChange(VocabularyDetailSourceFramePreferenceKey.self) { sourceFrames in
-            vocabularyDetailSourceFrames = sourceFrames
-        }
-        .task {
-            await prewarmImageLabelClassifier()
-        }
-    }
+            .tabItem {
+                Label(NavDestination.home.title, systemImage: NavDestination.home.symbol)
+            }
+            .tag(NavDestination.home)
 
-    private var rootContentTransition: AnyTransition {
-        if accessibilityReduceMotion {
-            return .opacity
-        }
+            NavigationStack(path: $reviewPath) {
+                ReviewView(onOpenCard: openVocabularyDetail)
+                    .navigationDestination(for: Route.self, destination: destination)
+            }
+            .tabItem {
+                Label(NavDestination.review.title, systemImage: NavDestination.review.symbol)
+            }
+            .tag(NavDestination.review)
 
-        switch rootNavigationDirection {
-        case .forward:
-            return .asymmetric(
-                insertion: .move(edge: .trailing),
-                removal: .move(edge: .leading)
-            )
-        case .backward:
-            return .asymmetric(
-                insertion: .move(edge: .leading),
-                removal: .move(edge: .trailing)
-            )
+            NavigationStack {
+                PersonalView()
+            }
+            .tabItem {
+                Label(NavDestination.personal.title, systemImage: NavDestination.personal.symbol)
+            }
+            .tag(NavDestination.personal)
         }
+        .tint(theme.lensAccent)
+        .task { await prewarmImageLabelClassifier() }
     }
 
     @ViewBuilder
-    private var rootContent: some View {
-        switch activeDestination {
-        case .home:
-            HomeView(
-                onCapture: presentCapture,
-                onSeeAll: presentReview,
-                onOpenCard: { item, items in
-                    openVocabularyDetail(item, in: items, source: .todaysCaptures)
-                }
-            )
-        case .review:
-            ReviewView(
-                onOpenCard: openVocabularyDetail
-            )
-        case .personal:
-            PersonalView()
+    private func destination(for route: Route) -> some View {
+        switch route {
         case .capture:
-            HomeView(
-                onCapture: presentCapture,
-                onSeeAll: presentReview,
-                onOpenCard: { item, items in
-                    openVocabularyDetail(item, in: items, source: .todaysCaptures)
-                }
-            )
+            CaptureView()
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar(.hidden, for: .tabBar)
+                .toolbarBackground(.hidden, for: .navigationBar)
+        case .vocabularyDetail(let session):
+            ExpandedVocabularyDetailView(session: session, prioritizesSystemBack: true)
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar(.hidden, for: .tabBar)
+                .toolbarBackground(.hidden, for: .navigationBar)
         }
     }
 
     private func presentCapture() {
-        guard path.last != .capture else { return }
-        print("[ContentView] presentCapture")
-        path.append(.capture)
-    }
-
-    private func selectRootDestination(_ destination: NavDestination) {
-        guard let direction = RootNavigationTransitionDirection(
-            from: activeDestination,
-            to: destination
-        ) else { return }
-
-        rootNavigationDirection = direction
-        withAnimation(AppMotion.rootNavigationAnimation) {
-            activeDestination = destination
-        }
+        guard homePath.last != .capture else { return }
+        activeDestination = .home
+        homePath.append(.capture)
     }
 
     private func presentReview() {
@@ -161,64 +90,12 @@ struct ContentView: View {
         in items: [CaptureItem],
         source: VocabularyDetailSource
     ) {
-        guard let session = VocabularyDetailSession(
-            selected: item,
-            in: items,
-            source: source
-        ) else { return }
-        let sourceID = VocabularyDetailTransition.sourceID(for: item)
-        let sourceFrame = vocabularyDetailSourceFrames[sourceID] ?? .zero
-        let presentation = VocabularyDetailPresentation(session: session, sourceFrame: sourceFrame)
-        activeVocabularyDetailPresentation = presentation
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + VocabularyDetailTransitionTiming.initialMeasurementDelay) {
-            withAnimation(vocabularyDetailAnimation) {
-                expandVocabularyDetailPresentation(id: presentation.id)
-            }
-        }
-        DispatchQueue.main.asyncAfter(
-            deadline: .now() + VocabularyDetailTransitionTiming.initialMeasurementDelay + vocabularyDetailAnimationDuration
-        ) {
-            settleVocabularyDetailPresentation(id: presentation.id)
-        }
-    }
-
-    private func expandVocabularyDetailPresentation(id: UUID) {
-        guard var presentation = activeVocabularyDetailPresentation,
-              presentation.id == id else { return }
-        presentation.isExpanded = true
-        activeVocabularyDetailPresentation = presentation
-    }
-
-    private func settleVocabularyDetailPresentation(id: UUID) {
-        guard var presentation = activeVocabularyDetailPresentation,
-              presentation.id == id,
-              presentation.isExpanded else { return }
-        presentation.hasSettled = true
-        activeVocabularyDetailPresentation = presentation
-    }
-
-    private func closeVocabularyDetail() {
-        guard let closingID = activeVocabularyDetailPresentation?.id else { return }
-
-        guard var presentation = activeVocabularyDetailPresentation else { return }
-        presentation.prepareForDismissalHeroReveal()
-        activeVocabularyDetailPresentation = presentation
-
-        DispatchQueue.main.async {
-            withAnimation(vocabularyDetailAnimation) {
-                guard var presentation = activeVocabularyDetailPresentation,
-                      presentation.id == closingID else { return }
-                presentation.collapseDismissalHero()
-                activeVocabularyDetailPresentation = presentation
-            }
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.36) {
-            if activeVocabularyDetailPresentation?.id == closingID,
-               activeVocabularyDetailPresentation?.isExpanded == false {
-                activeVocabularyDetailPresentation = nil
-            }
+        guard let session = VocabularyDetailSession(selected: item, in: items, source: source) else { return }
+        switch source {
+        case .todaysCaptures:
+            homePath.append(.vocabularyDetail(session))
+        case .learningReview, .masteredReview:
+            reviewPath.append(.vocabularyDetail(session))
         }
     }
 }
@@ -250,105 +127,6 @@ struct VocabularyDetailPresentation: Identifiable, Equatable {
     mutating func collapseDismissalHero() {
         isExpanded = false
         hasSettled = false
-    }
-}
-
-private enum VocabularyDetailSafeArea {
-    @MainActor
-    static var topInset: CGFloat {
-        let activeScene = UIApplication.shared.connectedScenes
-            .compactMap { $0 as? UIWindowScene }
-            .first { $0.activationState == .foregroundActive }
-        let keyWindow = activeScene?.windows.first { $0.isKeyWindow }
-        return keyWindow?.safeAreaInsets.top ?? 0
-    }
-}
-
-private struct VocabularyDetailTransitionOverlay: View {
-    let presentation: VocabularyDetailPresentation
-    let onDismiss: () -> Void
-    private let theme = AppTheme()
-    @State private var targetImageFrames: [UUID: CGRect] = [:]
-
-    var body: some View {
-        GeometryReader { geometry in
-            let containerSize = geometry.size
-            let fallbackImageFrame = ExpandedObjectDetailLayout(containerSize: containerSize).imageFrame
-            let targetImageFrame = VocabularyDetailHeroImageTransition.targetFrame(
-                measuredFrame: targetImageFrames[presentation.id],
-                fallbackFrame: fallbackImageFrame
-            )
-            let heroFrame = VocabularyDetailHeroImageTransition.frame(
-                sourceFrame: usableSourceFrame(fallback: targetImageFrame),
-                targetFrame: targetImageFrame,
-                isExpanded: presentation.isExpanded
-            )
-            let shouldLoadFullImage = VocabularyDetailImageLoadingPolicy.shouldLoadFullImage(
-                isExpanded: presentation.isExpanded,
-                hasSettled: presentation.hasSettled
-            )
-
-            ZStack(alignment: .topLeading) {
-                theme.background
-                    .ignoresSafeArea()
-
-                ExpandedVocabularyDetailView(
-                    session: presentation.session,
-                    loadsFullResolutionImages: shouldLoadFullImage
-                )
-                .frame(width: containerSize.width, height: containerSize.height)
-                .opacity(presentation.hasSettled ? 1 : 0)
-                .allowsHitTesting(presentation.hasSettled)
-
-                if !presentation.hasSettled, let selectedItem = presentation.selectedItem {
-                    VocabularyDetailHeroImageView(item: selectedItem, frame: heroFrame)
-                        .allowsHitTesting(false)
-                }
-
-                if presentation.hasSettled {
-                    BackGlassButton(action: onDismiss)
-                        .padding(
-                            .top,
-                            VocabularyDetailBackButtonPlacement.topPadding(
-                                safeAreaTop: VocabularyDetailSafeArea.topInset
-                            )
-                        )
-                        .padding(.leading, 16)
-                        .contentShape(Rectangle())
-                        .zIndex(20)
-                }
-            }
-            .onPreferenceChange(VocabularyDetailTargetImageFramePreferenceKey.self) { frames in
-                targetImageFrames = frames
-            }
-        }
-        .ignoresSafeArea()
-    }
-
-    private func usableSourceFrame(fallback: CGRect) -> CGRect {
-        guard presentation.sourceFrame.width > 0,
-              presentation.sourceFrame.height > 0 else {
-            return fallback
-        }
-        return presentation.sourceFrame
-    }
-}
-
-private struct VocabularyDetailHeroImageView: View {
-    let item: CaptureItem
-    let frame: CGRect
-
-    var body: some View {
-        StoredImageView(
-            relativePath: item.thumbnailImagePath,
-            preservesLoadedAspectRatio: true,
-            fallbackAspectRatio: item.imageAspectRatio
-        ) {
-            Color.clear
-        }
-        .frame(width: frame.width, height: frame.height)
-        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-        .position(x: frame.midX, y: frame.midY)
     }
 }
 

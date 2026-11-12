@@ -11,6 +11,7 @@ enum AppL10n {
     }
 
     enum Common {
+        static var close: String { AppL10n.string("common.close") }
         static var cancel: String { AppL10n.string("common.cancel") }
         static var done: String { AppL10n.string("common.done") }
         static var save: String { AppL10n.string("common.save") }

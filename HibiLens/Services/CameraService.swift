@@ -1,8 +1,3 @@
-//
-//  CameraService.swift
-//  HibiLens
-//
-
 @preconcurrency import AVFoundation
 import Combine
 import CoreMotion
@@ -43,6 +38,7 @@ final class CameraService: ObservableObject {
     private let logger = Logger(subsystem: "com.example.HibiLens", category: "Camera")
     private var isConfigured = false
     private var activeCameraDevice: AVCaptureDevice?
+    private var captureRotationCoordinator: AVCaptureDevice.RotationCoordinator?
     private var configuredZoomPresets: [CameraZoomPreset] = []
     private var zoomSelection = CameraZoomSelectionState(selectedPresetID: .wide)
     private var pendingZoomTransitionID: UUID?
@@ -171,7 +167,15 @@ final class CameraService: ObservableObject {
                 settings.photoQualityPrioritization = CapturePhotoConfiguration.prioritization(
                     for: self.photoOutput.maxPhotoQualityPrioritization
                 )
-                let cardRotationAngle = self.cardRotationAngleForCurrentCapture()
+                // Photo orientation is fixed at shutter time; downstream images are already upright.
+                var cardRotationAngle: CGFloat? = self.cardRotationAngleForCurrentCapture()
+                if let angle = self.captureRotationCoordinator?.videoRotationAngleForHorizonLevelCapture,
+                   let connection = self.photoOutput.connection(with: .video),
+                   connection.isVideoRotationAngleSupported(angle) {
+                    connection.videoRotationAngle = angle
+                    cardRotationAngle = nil
+                }
+                let resolvedCardRotationAngle = cardRotationAngle
                 let delegate = PhotoCaptureDelegate(normalizedVisibleRect: requestedVisibleRect) { [weak self] uniqueID in
                     self?.sessionQueue.async {
                         self?.activePhotoDelegates[uniqueID] = nil
@@ -182,7 +186,7 @@ final class CameraService: ObservableObject {
                         continuation.resume(
                             returning: CapturePhotoResult(
                                 image: image,
-                                cardRotationAngle: cardRotationAngle
+                                cardRotationAngle: resolvedCardRotationAngle
                             )
                         )
                     case .failure(let error):
@@ -304,6 +308,7 @@ final class CameraService: ObservableObject {
         session.addInput(wideInput)
         session.commitConfiguration()
         activeCameraDevice = wideDevice
+        captureRotationCoordinator = AVCaptureDevice.RotationCoordinator(device: wideDevice, previewLayer: nil)
         configuredZoomPresets = [CameraZoomPresetResolver.singleWidePreset]
         return true
     }
@@ -360,6 +365,7 @@ final class CameraService: ObservableObject {
 
         session.addOutput(photoOutput)
         activeCameraDevice = device
+        captureRotationCoordinator = AVCaptureDevice.RotationCoordinator(device: device, previewLayer: nil)
         configuredZoomPresets = chosenPresets
         isConfigured = true
         return true

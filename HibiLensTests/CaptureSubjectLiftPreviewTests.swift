@@ -1,9 +1,46 @@
 import UIKit
+import SwiftUI
 import XCTest
 import AVFoundation
 @testable import HibiLens
 
 final class CaptureSubjectLiftPreviewTests: XCTestCase {
+    func testCameraControlsRemainAtPhysicalBottomEdgeInBothLandscapes() {
+        let left = CaptureControlGeometry(size: CGSize(width: 800, height: 400), insets: EdgeInsets(), orientation: .landscapeLeft)
+        let right = CaptureControlGeometry(size: CGSize(width: 800, height: 400), insets: EdgeInsets(), orientation: .landscapeRight)
+        XCTAssertEqual(left.canvasSize, CGSize(width: 400, height: 800))
+        XCTAssertEqual(left.rotationDegrees, 90)
+        XCTAssertEqual(right.rotationDegrees, -90)
+    }
+
+    func testCameraControlsRotateSafeAreaWithTheirPhysicalEdge() {
+        let layout = CaptureControlGeometry(size: CGSize(width: 800, height: 400), insets: EdgeInsets(top: 1, leading: 2, bottom: 3, trailing: 4), orientation: .landscapeLeft)
+        XCTAssertEqual(layout.insets.top, 4)
+        XCTAssertEqual(layout.insets.leading, 1)
+        XCTAssertEqual(layout.insets.bottom, 2)
+        XCTAssertEqual(layout.insets.trailing, 3)
+    }
+
+
+    func testSettledLiftFitsPortraitImageInsideLandscapeViewport() {
+        let size = SubjectLiftPreviewSizing.imageSize(
+            image: CGSize(width: 300, height: 600),
+            viewport: CGSize(width: 800, height: 400),
+            showsOriginal: false
+        )
+        XCTAssertEqual(size, CGSize(width: 176, height: 352))
+    }
+
+    func testInitialLiftMatchesAspectFillPreview() {
+        let size = SubjectLiftPreviewSizing.imageSize(
+            image: CGSize(width: 300, height: 600),
+            viewport: CGSize(width: 800, height: 400),
+            showsOriginal: true
+        )
+        XCTAssertEqual(size, CGSize(width: 800, height: 1600))
+    }
+
+
     func testVisualRecognitionUsesLiftedCardPreviewImageOnly() throws {
         let originalImage = try XCTUnwrap(makeImage(color: .systemPink, size: CGSize(width: 20, height: 20)))
         let fullFrameImage = try XCTUnwrap(makeImage(color: .systemOrange, size: CGSize(width: 22, height: 22)))

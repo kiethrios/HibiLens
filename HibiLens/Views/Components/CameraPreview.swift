@@ -1,8 +1,3 @@
-//
-//  CameraPreview.swift
-//  HibiLens
-//
-
 @preconcurrency import AVFoundation
 import SwiftUI
 import UIKit
@@ -79,6 +74,8 @@ final class PreviewView: UIView {
     var onVisibleRectChange: ((CGRect?) -> Void)?
     private var observedSession: AVCaptureSession?
     private var sessionObservers: [NSObjectProtocol] = []
+    private var rotationCoordinator: AVCaptureDevice.RotationCoordinator?
+    private var previewRotationObservation: NSKeyValueObservation?
 
     override class var layerClass: AnyClass {
         AVCaptureVideoPreviewLayer.self
@@ -93,10 +90,17 @@ final class PreviewView: UIView {
         reportVisibleRect()
     }
 
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        reportVisibleRect()
+    }
+
     func setSession(_ session: AVCaptureSession?) {
         guard observedSession !== session else { return }
         sessionObservers.forEach(NotificationCenter.default.removeObserver)
         sessionObservers.removeAll()
+        previewRotationObservation = nil
+        rotationCoordinator = nil
         observedSession = session
         previewLayer.session = session
 
@@ -115,7 +119,37 @@ final class PreviewView: UIView {
         reportVisibleRect()
     }
 
+    private func updatePreviewRotation() {
+        guard let connection = previewLayer.connection,
+              let input = connection.inputPorts.first(where: { $0.mediaType == .video })?.input as? AVCaptureDeviceInput
+        else {
+            previewRotationObservation = nil
+            rotationCoordinator = nil
+            return
+        }
+
+        if rotationCoordinator?.device !== input.device {
+            previewRotationObservation = nil
+            let coordinator = AVCaptureDevice.RotationCoordinator(device: input.device, previewLayer: previewLayer)
+            rotationCoordinator = coordinator
+            previewRotationObservation = coordinator.observe(
+                \.videoRotationAngleForHorizonLevelPreview,
+                options: [.new]
+            ) { [weak self] _, _ in
+                // AVFoundation delivers preview rotation changes on the main queue.
+                self?.reportVisibleRect()
+            }
+        }
+
+        if let angle = rotationCoordinator?.videoRotationAngleForHorizonLevelPreview,
+           connection.isVideoRotationAngleSupported(angle),
+           connection.videoRotationAngle != angle {
+            connection.videoRotationAngle = angle
+        }
+    }
+
     func reportVisibleRect() {
+        updatePreviewRotation()
         guard let session = previewLayer.session,
               session.isRunning,
               previewLayer.connection != nil,

@@ -5,6 +5,14 @@ import XCTest
 @testable import HibiLens
 
 final class SigLIPClassifierTests: XCTestCase {
+    func testAppBundlesUsableCaptureRecognitionModel() async throws {
+        _ = try XCTUnwrap(Bundle.main.url(
+            forResource: "siglip_base_patch16_224_image", withExtension: "mlmodelc"
+        ), "Capture recognition requires the ignored local model assets in this worktree.")
+        try await SharedImageLabelClassifier.capture.prewarm()
+    }
+
+
     func testSharedImageLabelClassifierReusesCaptureInstance() {
         XCTAssertTrue(SharedImageLabelClassifier.capture === SharedImageLabelClassifier.capture)
     }

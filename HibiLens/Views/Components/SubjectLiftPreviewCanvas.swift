@@ -11,8 +11,7 @@ struct SubjectLiftPreviewCanvas: View {
                 fullScreenPreview(in: geometry)
 
                 fullScreenLiftedSubject(in: geometry)
-                    .scaleEffect(phase.subjectScale)
-                    .offset(y: phase.subjectYOffset)
+
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
@@ -37,14 +36,21 @@ struct SubjectLiftPreviewCanvas: View {
     }
 
     private func fullScreenLiftedSubject(in geometry: GeometryProxy) -> some View {
-        ZStack {
+        let viewport = phase == .glowOnOriginal ? geometry.size : CGSize(
+            width: geometry.size.width - geometry.safeAreaInsets.leading - geometry.safeAreaInsets.trailing,
+            height: geometry.size.height - geometry.safeAreaInsets.top - geometry.safeAreaInsets.bottom
+        )
+        let imageSize = SubjectLiftPreviewSizing.imageSize(
+            image: preview.fullFrameImage.size,
+            viewport: viewport,
+            showsOriginal: phase == .glowOnOriginal
+        )
+        return ZStack {
             Image(uiImage: preview.fullFrameImage)
                 .resizable()
                 .interpolation(.high)
                 .antialiased(true)
-                .scaledToFill()
-                .frame(width: geometry.size.width, height: geometry.size.height)
-                .clipped()
+                .frame(width: imageSize.width, height: imageSize.height)
                 .opacity(phase.staticGlowOpacity * 0.55)
                 .blur(radius: 3)
                 .scaleEffect(1.01)
@@ -68,9 +74,7 @@ struct SubjectLiftPreviewCanvas: View {
                         .resizable()
                         .interpolation(.high)
                         .antialiased(true)
-                        .scaledToFill()
-                        .frame(width: geometry.size.width, height: geometry.size.height)
-                        .clipped()
+                        .frame(width: imageSize.width, height: imageSize.height)
                         .blur(radius: 1.4)
                         .scaleEffect(1.008)
                 )
@@ -82,9 +86,21 @@ struct SubjectLiftPreviewCanvas: View {
                 .resizable()
                 .interpolation(.high)
                 .antialiased(true)
-                .scaledToFill()
-                .frame(width: geometry.size.width, height: geometry.size.height)
-                .clipped()
+                .frame(width: imageSize.width, height: imageSize.height)
         }
+        .frame(width: imageSize.width, height: imageSize.height)
+    }
+}
+
+enum SubjectLiftPreviewSizing {
+    nonisolated static func imageSize(image: CGSize, viewport: CGSize, showsOriginal: Bool) -> CGSize {
+        guard image.width > 0, image.height > 0, viewport.width > 0, viewport.height > 0 else { return .zero }
+        let inset: CGFloat = showsOriginal ? 0 : 24
+        let width = max(0, viewport.width - inset * 2)
+        let height = max(0, viewport.height - inset * 2)
+        let horizontalScale = width / image.width
+        let verticalScale = height / image.height
+        let scale = showsOriginal ? max(horizontalScale, verticalScale) : min(horizontalScale, verticalScale)
+        return CGSize(width: image.width * scale, height: image.height * scale)
     }
 }

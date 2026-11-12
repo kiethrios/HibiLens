@@ -120,7 +120,7 @@ enum ReviewVisualRefillSpec {
     static var deleteAlertTitle: String { AppL10n.Review.deleteAlertTitle }
     static var deleteConfirmTitle: String { AppL10n.Review.deleteConfirmTitle }
 
-    static let columnCount = 2
+    static let minimumCardWidth: CGFloat = 160
     static let columnSpacing: CGFloat = 16
     static let segmentedControlHeight: CGFloat = 48
     static let segmentedControlMaxWidth: CGFloat = 384

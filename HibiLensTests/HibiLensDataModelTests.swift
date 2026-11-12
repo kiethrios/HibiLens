@@ -151,12 +151,24 @@ final class HibiLensDataModelTests: XCTestCase {
     }
 
     func testExpandedObjectDetailLayoutMakesCardFullScreen() {
-        let layout = ExpandedObjectDetailLayout(containerSize: CGSize(width: 390, height: 844))
+        let size = CGSize(width: 390, height: 595)
+        let layout = ExpandedObjectDetailLayout(containerSize: size)
+        let shortText = layout.frames(textHeight: 190)
+        let wrappedText = layout.frames(textHeight: 290)
 
-        XCTAssertEqual(layout.cardFrame, CGRect(x: 0, y: 0, width: 390, height: 844))
-        XCTAssertLessThan(layout.imageFrame.maxY, layout.textTopY)
-        XCTAssertTrue(layout.cardFrame.contains(layout.imageFrame))
-        XCTAssertTrue(layout.cardFrame.contains(CGPoint(x: layout.cardFrame.midX, y: layout.textTopY)))
+        XCTAssertEqual(wrappedText.card.size, size)
+        XCTAssertLessThan(wrappedText.image.height, shortText.image.height)
+        XCTAssertLessThan(wrappedText.image.maxY, wrappedText.text.minY)
+        XCTAssertTrue(wrappedText.card.contains(wrappedText.text))
+    }
+
+    func testExpandedObjectDetailGrowsOnlyWhenTextCannotFitWithMinimumImage() {
+        let size = CGSize(width: 390, height: 400)
+        let layout = ExpandedObjectDetailLayout(containerSize: size)
+        let frames = layout.frames(textHeight: 350)
+
+        XCTAssertGreaterThan(frames.card.height, size.height)
+        XCTAssertTrue(frames.card.contains(frames.text))
     }
 
     func testExpandedObjectDetailStyleKeepsCardSurfaceButNotImageStageBackground() {
@@ -164,13 +176,13 @@ final class HibiLensDataModelTests: XCTestCase {
         XCTAssertTrue(ExpandedObjectDetailStyle.usesClearImageStage)
     }
 
-    func testExpandedObjectDetailNavigationUsesSystemZoomAndBackGesture() {
+    func testExpandedObjectDetailNavigationUsesNativeBackWithoutOverlayTransition() {
         XCTAssertFalse(ExpandedObjectDetailNavigation.usesSystemZoomTransition)
-        XCTAssertFalse(ExpandedObjectDetailNavigation.usesSystemBackGesture)
-        XCTAssertTrue(ExpandedObjectDetailNavigation.usesManualFrameOverlayTransition)
-        XCTAssertTrue(ExpandedObjectDetailNavigation.usesHeroImageTransitionLayer)
+        XCTAssertTrue(ExpandedObjectDetailNavigation.usesSystemBackGesture)
+        XCTAssertFalse(ExpandedObjectDetailNavigation.usesManualFrameOverlayTransition)
+        XCTAssertFalse(ExpandedObjectDetailNavigation.usesHeroImageTransitionLayer)
         XCTAssertFalse(ExpandedObjectDetailNavigation.scalesLiveDetailViewDuringTransition)
-        XCTAssertTrue(ExpandedObjectDetailNavigation.usesOverlayBackButton)
+        XCTAssertFalse(ExpandedObjectDetailNavigation.usesOverlayBackButton)
         XCTAssertTrue(ExpandedObjectDetailNavigation.usesPagedCardSwipe)
     }
 

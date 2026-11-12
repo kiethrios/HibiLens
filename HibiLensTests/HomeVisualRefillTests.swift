@@ -94,7 +94,7 @@ final class HomeVisualRefillTests: XCTestCase {
     }
 
     func testReviewVisualRefillKeepsMasonryScaleAndCompactFilter() {
-        XCTAssertEqual(ReviewVisualRefillSpec.columnCount, 2)
+        XCTAssertEqual(ReviewVisualRefillSpec.minimumCardWidth, 160)
         XCTAssertEqual(ReviewVisualRefillSpec.columnSpacing, 16)
         XCTAssertEqual(ReviewVisualRefillSpec.segmentedControlHeight, 48)
         XCTAssertEqual(ReviewVisualRefillSpec.segmentedControlMaxWidth, 384)
@@ -108,7 +108,7 @@ final class HomeVisualRefillTests: XCTestCase {
         )
     }
 
-    func testReviewContentScrollsBehindBottomNavigationGlass() throws {
+    func testReviewContentScrollsBehindTabBarWithBottomClearance() throws {
         let source = try String(
             contentsOf: projectRoot().appendingPathComponent("HibiLens/Views/Screens/ReviewView.swift"),
             encoding: .utf8
@@ -116,69 +116,11 @@ final class HomeVisualRefillTests: XCTestCase {
 
         XCTAssertTrue(
             source.contains(
-                "static let bottomScrollClearance = AppLayout.bottomNavBarHeight + AppLayout.bottomNavContentInset"
+                "static let bottomScrollClearance = AppLayout.bottomNavContentInset"
             )
         )
-        XCTAssertTrue(source.contains(".ignoresSafeArea(.container, edges: .bottom)"))
-        XCTAssertTrue(source.contains("bottom: ReviewLayout.bottomScrollClearance"))
-    }
-
-    func testReviewContentScrollsBehindTopSegmentedGlass() throws {
-        let source = try String(
-            contentsOf: projectRoot().appendingPathComponent("HibiLens/Views/Screens/ReviewView.swift"),
-            encoding: .utf8
-        )
-
-        XCTAssertTrue(
-            source.contains(
-                "static let topScrollClearance = segmentedControlHeight + AppLayout.reviewFloatingControlTopInset + AppLayout.bottomNavContentInset"
-            )
-        )
-        XCTAssertTrue(source.contains(".overlay(alignment: .top)"))
-        XCTAssertTrue(source.contains("top: ReviewLayout.topScrollClearance"))
-        XCTAssertFalse(source.contains(".safeAreaInset(edge: .top"))
-    }
-
-    func testReviewSegmentedControlUsesWhiteNavigationGlassShell() throws {
-        let source = try String(
-            contentsOf: projectRoot().appendingPathComponent("HibiLens/Views/Screens/ReviewView.swift"),
-            encoding: .utf8
-        )
-        let componentStart = try XCTUnwrap(source.range(of: "private var segmentedControl"))
-        let componentEnd = try XCTUnwrap(
-            source.range(
-                of: "private func reviewColumns",
-                range: componentStart.upperBound..<source.endIndex
-            )
-        )
-        let segmentedControlSource = String(source[componentStart.lowerBound..<componentEnd.lowerBound])
-
-        XCTAssertTrue(segmentedControlSource.contains("ReviewSegmentedControlGlassSurface(theme: theme)"))
-        XCTAssertTrue(source.contains(".glassEffect(.regular.tint(theme.glassShellTint), in: .capsule)"))
-        XCTAssertTrue(source.contains(".ultraThinMaterial"))
-        XCTAssertTrue(source.contains(".fill(theme.surfaceBase.opacity(0.7))"))
-        XCTAssertTrue(segmentedControlSource.contains(".fill(theme.lensMuted.opacity(0.72))"))
-        XCTAssertFalse(
-            segmentedControlSource.contains(".background(theme.galleryBand.opacity(0.86), in: Capsule())")
-        )
-    }
-
-    func testReviewSegmentedControlUsesFullButtonHitAreas() throws {
-        let source = try String(
-            contentsOf: projectRoot().appendingPathComponent("HibiLens/Views/Screens/ReviewView.swift"),
-            encoding: .utf8
-        )
-        let componentStart = try XCTUnwrap(source.range(of: "private var segmentedControl"))
-        let componentEnd = try XCTUnwrap(
-            source.range(
-                of: "private func reviewColumns",
-                range: componentStart.upperBound..<source.endIndex
-            )
-        )
-        let segmentedControlSource = String(source[componentStart.lowerBound..<componentEnd.lowerBound])
-
-        XCTAssertTrue(segmentedControlSource.contains(".contentShape(Rectangle())"))
-        XCTAssertTrue(segmentedControlSource.contains(".allowsHitTesting(false)"))
+        XCTAssertTrue(source.contains(".ignoresSafeArea(.container, edges: .vertical)"))
+        XCTAssertTrue(source.contains("bottom: ReviewLayout.bottomScrollClearance + safeAreaInsets.bottom"))
     }
 
     func testBottomNavigationUsesUncompoundedInactiveForeground() throws {

@@ -29,6 +29,7 @@ Hibi Lens does not require an account.
 - Recognizes 512 everyday objects and shows you how to say them in Japanese
 - Japanese terms with kana, romaji, pronunciation, and English meaning
 - Saved vocabulary cards with learning and mastered states
+- Adaptive card grids, wide-screen review details, and system navigation for iPhone Duo
 - Camera capture and photo-library import
 - Light and dark appearance
 - English and Simplified Chinese interface text

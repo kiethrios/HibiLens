@@ -187,6 +187,49 @@ private struct DailyDiscoveryHero: View {
     let onOpenCard: (() -> Void)?
 
     var body: some View {
+        ViewThatFits(in: .horizontal) {
+            if !dynamicTypeSize.isAccessibilitySize {
+                wideHero
+            }
+            portraitHero
+        }
+        .clipShape(RoundedRectangle(cornerRadius: AppLayout.keepsakeCardCornerRadius, style: .continuous))
+        .overlay {
+            RoundedRectangle(cornerRadius: AppLayout.keepsakeCardCornerRadius, style: .continuous)
+                .stroke(theme.discoveryAccent.opacity(0.14), lineWidth: 1)
+        }
+        .appAmbientDepth(theme: theme, depth: .elevated, yOffset: 10)
+    }
+
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+
+    private var wideHero: some View {
+        HStack(spacing: 20) {
+            VStack(alignment: .leading, spacing: 8) {
+                Text(HomeVisualRefillSpec.discoveryTitle)
+                    .font(AppTypography.sectionTitle)
+                    .foregroundStyle(theme.primaryText)
+                Text(AppL10n.Home.discoverySubtitle)
+                    .font(AppTypography.bodyLarge)
+                    .foregroundStyle(theme.secondaryText)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+
+            LensCaptureButton(action: onCapture, diameter: 92)
+                .frame(width: 120)
+
+            discoveryStage(compact: true)
+                .frame(width: 104, height: 126)
+                .rotationEffect(.degrees(featuredItem == nil ? 6 : 3))
+                .shadow(color: theme.primaryText.opacity(0.12), radius: 10, x: 0, y: 6)
+        }
+        .padding(.horizontal, 24)
+        .padding(.vertical, 16)
+        .frame(minWidth: 500, maxWidth: .infinity)
+        .background { heroSceneBackground }
+    }
+
+    private var portraitHero: some View {
         ZStack(alignment: .topLeading) {
             heroSceneBackground
 
@@ -206,7 +249,7 @@ private struct DailyDiscoveryHero: View {
             .frame(maxWidth: 220, alignment: .leading)
             .zIndex(2)
 
-            discoveryStage
+            discoveryStage(compact: false)
                 .frame(width: 150, height: 186)
                 .rotationEffect(.degrees(featuredItem == nil ? 6 : 3))
                 .shadow(color: theme.primaryText.opacity(0.12), radius: 14, x: 0, y: 10)
@@ -223,12 +266,6 @@ private struct DailyDiscoveryHero: View {
                 .zIndex(1)
         }
         .frame(maxWidth: .infinity, minHeight: HomeVisualRefillSpec.dailyDiscoveryHeroHeight + 56)
-        .clipShape(RoundedRectangle(cornerRadius: AppLayout.keepsakeCardCornerRadius, style: .continuous))
-        .overlay {
-            RoundedRectangle(cornerRadius: AppLayout.keepsakeCardCornerRadius, style: .continuous)
-                .stroke(theme.discoveryAccent.opacity(0.14), lineWidth: 1)
-        }
-        .appAmbientDepth(theme: theme, depth: .elevated, yOffset: 10)
     }
 
     private var heroSceneBackground: some View {
@@ -258,16 +295,16 @@ private struct DailyDiscoveryHero: View {
     }
 
     @ViewBuilder
-    private var discoveryStage: some View {
+    private func discoveryStage(compact: Bool) -> some View {
         if let featuredItem {
             Button {
                 onOpenCard?()
             } label: {
-                FeaturedKeepsakeSlot(item: featuredItem)
+                FeaturedKeepsakeSlot(item: featuredItem, compact: compact)
             }
             .buttonStyle(.plain)
         } else {
-            EmptyKeepsakeSlot()
+            EmptyKeepsakeSlot(compact: compact)
         }
     }
 }
@@ -275,6 +312,7 @@ private struct DailyDiscoveryHero: View {
 private struct FeaturedKeepsakeSlot: View {
     private let theme = AppTheme()
     let item: CaptureItem
+    let compact: Bool
 
     var body: some View {
         let content = CaptureCardDisplayContent.from(item)
@@ -286,7 +324,7 @@ private struct FeaturedKeepsakeSlot: View {
                 }
                 .padding(10)
             }
-            .frame(height: 100)
+            .frame(height: compact ? 52 : 100)
             .appSubjectStageSurface(theme: theme)
 
             VStack(alignment: .leading, spacing: 5) {
@@ -311,6 +349,7 @@ private struct FeaturedKeepsakeSlot: View {
 
 private struct EmptyKeepsakeSlot: View {
     private let theme = AppTheme()
+    let compact: Bool
 
     var body: some View {
         ZStack {
@@ -318,9 +357,9 @@ private struct EmptyKeepsakeSlot: View {
                 .stroke(theme.discoveryAccent.opacity(0.46), lineWidth: 1.2)
                 .padding(16)
 
-            VStack(spacing: 12) {
+            VStack(spacing: compact ? 5 : 12) {
                 Image(systemName: "camera")
-                    .font(AppTypography.displaySmall.weight(.regular))
+                    .font(compact ? AppTypography.headlineMedium : AppTypography.displaySmall.weight(.regular))
                     .foregroundStyle(theme.cardSecondaryText.opacity(0.86))
 
                 Text(AppL10n.Home.emptyKeepsake)
@@ -351,17 +390,18 @@ private struct EmptyKeepsakeSlot: View {
 private struct LensCaptureButton: View {
     private let theme = AppTheme()
     let action: () -> Void
+    var diameter: CGFloat = HomeVisualRefillSpec.lensButtonDiameter
 
     var body: some View {
         Button(action: action) {
             photographicLens
                 .frame(
-                    width: HomeVisualRefillSpec.lensButtonDiameter - 8,
-                    height: HomeVisualRefillSpec.lensButtonDiameter - 8
+                    width: diameter - 8,
+                    height: diameter - 8
                 )
                 .frame(
-                    width: HomeVisualRefillSpec.lensButtonDiameter,
-                    height: HomeVisualRefillSpec.lensButtonDiameter
+                    width: diameter,
+                    height: diameter
                 )
                 .contentShape(Circle())
         }

@@ -21,7 +21,7 @@ enum MasonryGridPlacementCalculator {
         var columnHeights = Array(repeating: CGFloat.zero, count: columnCount)
 
         return itemHeights.enumerated().map { index, itemHeight in
-            let column = shortestColumnIndex(in: columnHeights)
+            let column = index % columnCount
             let x = CGFloat(column) * (columnWidth + spacing)
             let y = columnHeights[column]
 
@@ -53,24 +53,33 @@ enum MasonryGridPlacementCalculator {
         .max() ?? 0
     }
 
-    private static func shortestColumnIndex(in columnHeights: [CGFloat]) -> Int {
-        columnHeights.enumerated().min { lhs, rhs in
-            if lhs.element == rhs.element {
-                lhs.offset < rhs.offset
-            } else {
-                lhs.element < rhs.element
-            }
-        }?.offset ?? 0
-    }
 }
 
 struct MasonryGridLayout: Layout {
     let columnCount: Int
+    private let minimumColumnWidth: CGFloat?
     let spacing: CGFloat
 
     init(columnCount: Int = 2, spacing: CGFloat) {
         self.columnCount = max(1, columnCount)
+        self.minimumColumnWidth = nil
         self.spacing = spacing
+    }
+
+    init(minimumColumnWidth: CGFloat, spacing: CGFloat) {
+        self.columnCount = 1
+        self.minimumColumnWidth = max(1, minimumColumnWidth)
+        self.spacing = spacing
+    }
+
+    static func adaptiveColumnCount(width: CGFloat, minimumWidth: CGFloat, spacing: CGFloat) -> Int {
+        guard width.isFinite, minimumWidth > 0, spacing >= 0 else { return 1 }
+        return max(1, Int(floor((max(0, width) + spacing) / (minimumWidth + spacing))))
+    }
+
+    private func columns(for width: CGFloat) -> Int {
+        guard let minimumColumnWidth else { return columnCount }
+        return Self.adaptiveColumnCount(width: width, minimumWidth: minimumColumnWidth, spacing: spacing)
     }
 
     func sizeThatFits(
@@ -83,6 +92,7 @@ struct MasonryGridLayout: Layout {
         }
 
         let width = proposal.width ?? 0
+        let columnCount = columns(for: width)
         let columnWidth = columnWidth(for: width)
         let itemHeights = subviews.map { subview in
             subview.sizeThatFits(
@@ -106,6 +116,7 @@ struct MasonryGridLayout: Layout {
         subviews: Subviews,
         cache: inout ()
     ) {
+        let columnCount = columns(for: bounds.width)
         let columnWidth = columnWidth(for: bounds.width)
         let itemHeights = subviews.map { subview in
             subview.sizeThatFits(
@@ -135,6 +146,7 @@ struct MasonryGridLayout: Layout {
     }
 
     private func columnWidth(for availableWidth: CGFloat) -> CGFloat {
+        let columnCount = columns(for: availableWidth)
         let totalSpacing = spacing * CGFloat(columnCount - 1)
         return max(0, (availableWidth - totalSpacing) / CGFloat(columnCount))
     }
