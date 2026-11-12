@@ -24,6 +24,15 @@ Hibi Lens does not require an account.
   <img src="BrandAssets/Screenshots/learning-gallery.png" alt="Hibi Lens learning gallery" width="220">
 </p>
 
+## Latest source update: iPhone Duo support
+
+- System tabs, navigation, and category selection adapt to the available screen space.
+- Vocabulary grids choose their column count automatically. Opening a card on a wide landscape screen keeps the grid beside its details; compact screens retain full-screen details.
+- Camera controls stay on the same physical device edge when rotating, while icons and zoom labels turn upright. The decorative framing square has been removed; the viewfinder remains full-screen.
+- Corrected camera preview and captured-photo orientation, removed extra card rotation, and adjusted the cutout animation to show the complete subject.
+
+Duo layouts were checked in the simulator. The capture workflow was tested on an iPhone 12; Duo camera and handling have not been verified on physical hardware.
+
 ## What is included
 
 - Recognizes 512 everyday objects and shows you how to say them in Japanese
